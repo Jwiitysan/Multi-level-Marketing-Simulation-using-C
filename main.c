@@ -41,6 +41,7 @@ int main(int argc, char **argv)
     SDL_Event event;
     struct eventTrigger *eventData = (struct eventTrigger*) malloc(sizeof(struct eventTrigger));
 
+    // Initial each scene's component
     Title_Initial(renderer);
     Selling_Initial(renderer);
     PersonalInfo_Initial(renderer);
@@ -51,6 +52,7 @@ int main(int argc, char **argv)
     Amount_Initial(renderer);
 
     while(running){
+        // Reset the eventData in each round of loop and get current mouse position
         resetEventTrigger(eventData);
         SDL_GetMouseState(&eventData->mouseX, &eventData->mouseY);
         
