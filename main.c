@@ -1,16 +1,22 @@
+#include <stdio.h>
+#include <stdbool.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-#include <stdio.h>
-#include <stdbool.h>
 #include <system/struct.h>
 #include <system/nodeHandle.h>
 #include <system/scene.h>
+#include <system/componentLoad.h>
 
 // Set the default value of the extern variable in struct.h
 int currentRoom = 0;
 NodePtr rootOfMLM = NULL;
 NodePtr sendingNode = NULL;
+
+// Set the default value of the extern variable (SearchBar) in componentLoad.h
+char searchText[10] = "NULL";
+int searchBarUsing = 0;
+char currentShift = 'a';
 
 // The function which use to reset the eventData in each round of loop
 void resetEventTrigger(struct eventTrigger *eventData){

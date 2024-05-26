@@ -1,8 +1,5 @@
 #include <SDL2/SDL.h>
 
-#ifndef SCENE_H
-#define SCENE_H
-
 void Amount_Initial(SDL_Renderer *renderer);
 void Amount_DrawScene(SDL_Renderer *renderer, struct eventTrigger *eventData);
 
@@ -23,5 +20,3 @@ void Selling_DrawScene(SDL_Renderer *renderer);
 
 void Title_Initial(SDL_Renderer *renderer);
 void Title_Run(SDL_Renderer *renderer, struct eventTrigger *eventData);
-
-#endif
