@@ -30,15 +30,11 @@ int Title_CurrentFirstRun = 1;
 
 void StartButtonEvent(){
     currentRoom = 1;
-    // Title_DestoryObject();
 }
 //object
-struct object *Title_StartButton;
 
 
 void Title_Initial(SDL_Renderer *renderer){
-    Title_StartButton = (struct object*) malloc(sizeof(struct object));
-    Title_StartButton->clickEvent = StartButtonEvent;
 
     //กรอบหัวข้อ
     Title_rect1.x = 50;
@@ -47,10 +43,6 @@ void Title_Initial(SDL_Renderer *renderer){
     Title_rect1.h = 165;
 
     createIMGTexture_Rect(renderer, &Title_imgTexture1, &Title_imgRect1, "src/image/Title_StartSim.png", 70, 340, 590);
-    Title_StartButton->pos1[0] = Title_imgRect1.x;
-    Title_StartButton->pos1[1] = Title_imgRect1.y;
-    Title_StartButton->pos2[0] = Title_imgRect1.x + Title_imgRect1.w;
-    Title_StartButton->pos2[1] = Title_imgRect1.y + Title_imgRect1.h;
 
     createTextTexture_Rect(renderer, &Title_texTexture1, &Title_texRect1, "Multi-Level Marketing", "src/font/HoltwoodOneSC-Regular.ttf", 40, 180, 234, 230, 255, 70, 100);
     createTextTexture_Rect(renderer, &Title_texTexture2, &Title_texRect2, "Simulation", "src/font/HoltwoodOneSC-Regular.ttf", 40, 180, 234, 230, 255, 225, 165);
