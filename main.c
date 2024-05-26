@@ -51,13 +51,14 @@ int main(int argc, char **argv)
     Result_Initial(renderer);
     Amount_Initial(renderer);
 
+    // Main loop
     while(running){
         // Reset the eventData in each round of loop and get current mouse position
         resetEventTrigger(eventData);
         SDL_GetMouseState(&eventData->mouseX, &eventData->mouseY);
         
+        // Event handling
         while(SDL_PollEvent(&event)){
-    
             if(event.type == SDL_QUIT){
                 running = false;
             }
@@ -71,6 +72,8 @@ int main(int argc, char **argv)
                 eventData->isTrigger = 0;
             }
         }
+        
+        // Scene switching (depends on currentRoom which is extern variable in struct.h)
         switch(currentRoom){
             case 0:
                 Title_Run(renderer, eventData);
