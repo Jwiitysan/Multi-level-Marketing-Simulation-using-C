@@ -36,35 +36,35 @@ void Table_Initial(SDL_Renderer *renderer){
 
     //image
 
-    SDL_Surface *imgSur1 = IMG_Load("src/ImgPro/Table_Tree.png");
+    SDL_Surface *imgSur1 = IMG_Load("src/image/Table_Tree.png");
     Table_imgTexture1 = SDL_CreateTextureFromSurface(renderer, imgSur1);
     Table_imgRect1.x = 20;
     Table_imgRect1.y = 30;
     Table_imgRect1.w = 180;
     Table_imgRect1.h = (int)(Table_imgRect1.w * ((float)imgSur1->h / imgSur1->w));
 
-    SDL_Surface *imgSur2 = IMG_Load("src/ImgPro/Result_search.png");
+    SDL_Surface *imgSur2 = IMG_Load("src/image/Result_search.png");
     Table_imgTexture2 = SDL_CreateTextureFromSurface(renderer, imgSur2);
     Table_imgRect2.x = 460;
     Table_imgRect2.y = 35;
     Table_imgRect2.w = 270;
     Table_imgRect2.h = (int)(Table_imgRect2.w * ((float)imgSur2->h / imgSur2->w));
 
-    SDL_Surface *imgSur3 = IMG_Load("src/ImgPro/Table_TableMix.png");
+    SDL_Surface *imgSur3 = IMG_Load("src/image/Table_TableMix.png");
     Table_imgTexture3 = SDL_CreateTextureFromSurface(renderer, imgSur3);
     Table_imgRect3.x = 35;
     Table_imgRect3.y = 110;
     Table_imgRect3.w = 680;
     Table_imgRect3.h = (int)(Table_imgRect3.w * ((float)imgSur3->h / imgSur3->w));
 
-    SDL_Surface *imgSur4 = IMG_Load("src/ImgPro/Table_Back.png");
+    SDL_Surface *imgSur4 = IMG_Load("src/image/Table_Back.png");
     Table_imgTexture4 = SDL_CreateTextureFromSurface(renderer, imgSur4);
     Table_imgRect4.x = 10;
     Table_imgRect4.y = 705;
     Table_imgRect4.w = 35;
     Table_imgRect4.h = (int)(Table_imgRect4.w * ((float)imgSur4->h / imgSur4->w));
 
-    SDL_Surface *imgSur5 = IMG_Load("src/ImgPro/Table_Next.png");
+    SDL_Surface *imgSur5 = IMG_Load("src/image/Table_Next.png");
     Table_imgTexture5 = SDL_CreateTextureFromSurface(renderer, imgSur5);
     Table_imgRect5.x = 700;
     Table_imgRect5.y = 705;

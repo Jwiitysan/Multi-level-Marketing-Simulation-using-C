@@ -13,10 +13,11 @@ struct object{
 
 // The struct used to store the user interface data
 struct eventTrigger{
+    // Mouse Position & Clicking (isTrigger)
     int mouseX;
     int mouseY;
     int isTrigger;
-    int isUsingKeyboard;
+    // Keybord current type (-1 = default)
     int currentInput;
 };
 

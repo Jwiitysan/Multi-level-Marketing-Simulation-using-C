@@ -47,7 +47,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     //image
 
-    SDL_Surface *imgSur1 = IMG_Load("src/ImgPro/Amount_Background.png");
+    SDL_Surface *imgSur1 = IMG_Load("src/image/Amount_Background.png");
     Amount_imgTexture1 = SDL_CreateTextureFromSurface(renderer, imgSur1);
     Amount_imgRect1.x = 110;
     Amount_imgRect1.y = 25;
@@ -56,7 +56,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     SDL_FreeSurface(imgSur1);
 
-    SDL_Surface *imgSur2 = IMG_Load("src/ImgPro/selling_Tree.png");
+    SDL_Surface *imgSur2 = IMG_Load("src/image/selling_Tree.png");
     Amount_imgTexture2 = SDL_CreateTextureFromSurface(renderer, imgSur2);
     Amount_imgRect2.x = 10;
     Amount_imgRect2.y = 150;
@@ -65,7 +65,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     SDL_FreeSurface(imgSur2);
 
-    SDL_Surface *imgSur3 = IMG_Load("src/ImgPro/Amount_Amount.png");
+    SDL_Surface *imgSur3 = IMG_Load("src/image/Amount_Amount.png");
     Amount_imgTexture3 = SDL_CreateTextureFromSurface(renderer, imgSur3);
     Amount_imgRect3.x = 515;
     Amount_imgRect3.y = 250;
@@ -74,7 +74,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     SDL_FreeSurface(imgSur3);
 
-    SDL_Surface *imgSur4 = IMG_Load("src/ImgPro/selling_PriceFix2.png");
+    SDL_Surface *imgSur4 = IMG_Load("src/image/selling_PriceFix2.png");
     Amount_imgTexture4 = SDL_CreateTextureFromSurface(renderer, imgSur4);
     Amount_imgRect4.x = 515;
     Amount_imgRect4.y = 420;
@@ -83,7 +83,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     SDL_FreeSurface(imgSur4);
 
-    SDL_Surface *imgSur5 = IMG_Load("src/ImgPro/selling_OK.png");
+    SDL_Surface *imgSur5 = IMG_Load("src/image/selling_OK.png");
     Amount_imgTexture5 = SDL_CreateTextureFromSurface(renderer, imgSur5);
     Amount_imgRect5.x = 580;
     Amount_imgRect5.y = 550;
@@ -92,7 +92,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     SDL_FreeSurface(imgSur5);
 
-    SDL_Surface *imgSur6 = IMG_Load("src/ImgPro/Back.png");
+    SDL_Surface *imgSur6 = IMG_Load("src/image/Back.png");
     Amount_imgTexture6 = SDL_CreateTextureFromSurface(renderer, imgSur6);
     Amount_imgRect6.x = 25;
     Amount_imgRect6.y = 680;
@@ -103,7 +103,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     //img_product
 
-    SDL_Surface *imgSur7 = IMG_Load("src/ImgPro/eSpring.png");
+    SDL_Surface *imgSur7 = IMG_Load("src/image/eSpring.png");
     Amount_imgTexture7 = SDL_CreateTextureFromSurface(renderer, imgSur7);
     Amount_imgRect7.x = 65;
     Amount_imgRect7.y = 260;
@@ -112,7 +112,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     SDL_FreeSurface(imgSur7);
 
-    SDL_Surface *imgSur8 = IMG_Load("src/ImgPro/Water_filter.png");
+    SDL_Surface *imgSur8 = IMG_Load("src/image/Water_filter.png");
     Amount_imgTexture8 = SDL_CreateTextureFromSurface(renderer, imgSur8);
     Amount_imgRect8.x = 225;
     Amount_imgRect8.y = 260;
@@ -121,7 +121,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     SDL_FreeSurface(imgSur8);
 
-    SDL_Surface *imgSur9 = IMG_Load("src/ImgPro/Atmosphere.png");
+    SDL_Surface *imgSur9 = IMG_Load("src/image/Atmosphere.png");
     Amount_imgTexture9 = SDL_CreateTextureFromSurface(renderer, imgSur9);
     Amount_imgRect9.x = 385;
     Amount_imgRect9.y = 260;
@@ -130,7 +130,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     SDL_FreeSurface(imgSur9);
 
-    SDL_Surface *imgSur10 = IMG_Load("src/ImgPro/Air_filter.png");
+    SDL_Surface *imgSur10 = IMG_Load("src/image/Air_filter.png");
     Amount_imgTexture10 = SDL_CreateTextureFromSurface(renderer, imgSur10);
     Amount_imgRect10.x = 110;
     Amount_imgRect10.y = 460;
@@ -139,7 +139,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     SDL_FreeSurface(imgSur10);
 
-    SDL_Surface *imgSur11 = IMG_Load("src/ImgPro/Smart_watch.png");
+    SDL_Surface *imgSur11 = IMG_Load("src/image/Smart_watch.png");
     Amount_imgTexture11 = SDL_CreateTextureFromSurface(renderer, imgSur11);
     Amount_imgRect11.x = 290;
     Amount_imgRect11.y = 460;

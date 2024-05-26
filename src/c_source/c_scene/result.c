@@ -76,7 +76,7 @@ void Result_Initial(SDL_Renderer *renderer){
     SDL_FreeSurface(nodeSurface);
     SDL_FreeSurface(nodeSurface2);
 
-    SDL_Surface *imgSur1 = IMG_Load("src/ImgPro/Result_Background.png");
+    SDL_Surface *imgSur1 = IMG_Load("src/image/Result_Background.png");
     Result_imgTexture1 = SDL_CreateTextureFromSurface(renderer, imgSur1);
     Result_imgRect1.x = 30;
     Result_imgRect1.y = 30;
@@ -85,7 +85,7 @@ void Result_Initial(SDL_Renderer *renderer){
 
     SDL_FreeSurface(imgSur1);
 
-    SDL_Surface *imgSur2 = IMG_Load("src/ImgPro/Result_search.png");
+    SDL_Surface *imgSur2 = IMG_Load("src/image/Result_search.png");
     Result_imgTexture2 = SDL_CreateTextureFromSurface(renderer, imgSur2);
     Result_imgRect2.x = 400;
     Result_imgRect2.y = 30;
@@ -93,7 +93,7 @@ void Result_Initial(SDL_Renderer *renderer){
     Result_imgRect2.h = (int)(Result_imgRect2.w * ((float)imgSur2->h / imgSur2->w));
     SDL_FreeSurface(imgSur2);
 
-    SDL_Surface *imgSur3 = IMG_Load("src/ImgPro/Result_BackgroundAllOption.png");
+    SDL_Surface *imgSur3 = IMG_Load("src/image/Result_BackgroundAllOption.png");
     Result_imgTexture3 = SDL_CreateTextureFromSurface(renderer, imgSur3);
     Result_imgRect3.x = 480;
     Result_imgRect3.y = 180;
@@ -101,7 +101,7 @@ void Result_Initial(SDL_Renderer *renderer){
     Result_imgRect3.h = (int)(Result_imgRect3.w * ((float)imgSur3->h / imgSur3->w));
     SDL_FreeSurface(imgSur3);
 
-    SDL_Surface *imgSur4 = IMG_Load("src/ImgPro/Result_ButtonOption.png");
+    SDL_Surface *imgSur4 = IMG_Load("src/image/Result_ButtonOption.png");
     Result_imgTexture4 = SDL_CreateTextureFromSurface(renderer, imgSur4);
     Result_imgRect4.x = 500;
     Result_imgRect4.y = 235;
@@ -109,7 +109,7 @@ void Result_Initial(SDL_Renderer *renderer){
     Result_imgRect4.h = (int)(Result_imgRect4.w * ((float)imgSur4->h / imgSur4->w));
     SDL_FreeSurface(imgSur4);
 
-    SDL_Surface *imgSur5 = IMG_Load("src/ImgPro/Result_ButtonOption.png");
+    SDL_Surface *imgSur5 = IMG_Load("src/image/Result_ButtonOption.png");
     Result_imgTexture5 = SDL_CreateTextureFromSurface(renderer, imgSur5);
     Result_imgRect5.x = 500;
     Result_imgRect5.y = 315;
@@ -117,7 +117,7 @@ void Result_Initial(SDL_Renderer *renderer){
     Result_imgRect5.h = (int)(Result_imgRect5.w * ((float)imgSur5->h / imgSur5->w));
     SDL_FreeSurface(imgSur5);
 
-    SDL_Surface *imgSur6 = IMG_Load("src/ImgPro/Result_ButtonOption.png");
+    SDL_Surface *imgSur6 = IMG_Load("src/image/Result_ButtonOption.png");
     Result_imgTexture6 = SDL_CreateTextureFromSurface(renderer, imgSur6);
     Result_imgRect6.x = 500;
     Result_imgRect6.y = 395;
@@ -125,7 +125,7 @@ void Result_Initial(SDL_Renderer *renderer){
     Result_imgRect6.h = (int)(Result_imgRect6.w * ((float)imgSur6->h / imgSur6->w));
     SDL_FreeSurface(imgSur6);
 
-    SDL_Surface *imgSur7 = IMG_Load("src/ImgPro/Result_ButtonOption.png");
+    SDL_Surface *imgSur7 = IMG_Load("src/image/Result_ButtonOption.png");
     Result_imgTexture7 = SDL_CreateTextureFromSurface(renderer, imgSur7);
     Result_imgRect7.x = 500;
     Result_imgRect7.y = 475;
@@ -133,7 +133,7 @@ void Result_Initial(SDL_Renderer *renderer){
     Result_imgRect7.h = (int)(Result_imgRect7.w * ((float)imgSur7->h / imgSur7->w));
     SDL_FreeSurface(imgSur7);
 
-    SDL_Surface *imgSur8 = IMG_Load("src/ImgPro/Result_Restart.png");
+    SDL_Surface *imgSur8 = IMG_Load("src/image/Result_Restart.png");
     Result_imgTexture8 = SDL_CreateTextureFromSurface(renderer, imgSur8);
     Result_imgRect8.x = 660;
     Result_imgRect8.y = 670;
@@ -141,7 +141,7 @@ void Result_Initial(SDL_Renderer *renderer){
     Result_imgRect8.h = (int)(Result_imgRect8.w * ((float)imgSur8->h / imgSur8->w));
     SDL_FreeSurface(imgSur8);
 
-    SDL_Surface *imgSur9 = IMG_Load("src/ImgPro/Result_Cal.png");
+    SDL_Surface *imgSur9 = IMG_Load("src/image/Result_Cal.png");
     Result_imgTexture9 = SDL_CreateTextureFromSurface(renderer, imgSur9);
     Result_imgRect9.x = 25;
     Result_imgRect9.y = 640;
@@ -149,7 +149,7 @@ void Result_Initial(SDL_Renderer *renderer){
     Result_imgRect9.h = (int)(Result_imgRect9.w * ((float)imgSur9->h / imgSur9->w));
     SDL_FreeSurface(imgSur9);
 
-    // SDL_Surface *imgSur10 = IMG_Load("src/ImgPro/Result_edit.png");
+    // SDL_Surface *imgSur10 = IMG_Load("src/image/Result_edit.png");
     // Result_imgTexture10 = SDL_CreateTextureFromSurface(renderer, imgSur10);
     // Result_imgRect10.x = 170;
     // Result_imgRect10.y = 650;

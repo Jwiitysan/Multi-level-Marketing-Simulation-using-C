@@ -59,7 +59,7 @@ void NewDownline_Initial(SDL_Renderer *renderer){
 
     //image
 
-    SDL_Surface *imgSur1 = IMG_Load("src/ImgPro/NewDownline_Name.png");
+    SDL_Surface *imgSur1 = IMG_Load("src/image/NewDownline_Name.png");
     NewDownline_imgTexture1 = SDL_CreateTextureFromSurface(renderer, imgSur1);
     NewDownline_imgRect1.x = 160;
     NewDownline_imgRect1.y = 130;
@@ -67,35 +67,35 @@ void NewDownline_Initial(SDL_Renderer *renderer){
     NewDownline_imgRect1.h = (int)(NewDownline_imgRect1.w * ((float)imgSur1->h / imgSur1->w));
 
     //Sell Amount
-    SDL_Surface *imgSur2 = IMG_Load("src/ImgPro/eSpring.png");
+    SDL_Surface *imgSur2 = IMG_Load("src/image/eSpring.png");
     NewDownline_imgTexture2 = SDL_CreateTextureFromSurface(renderer, imgSur2);
     NewDownline_imgRect2.x = 50;
     NewDownline_imgRect2.y = 280;
     NewDownline_imgRect2.w = 50;
     NewDownline_imgRect2.h = (int)(NewDownline_imgRect2.w * ((float)imgSur2->h / imgSur2->w));
 
-    SDL_Surface *imgSur3 = IMG_Load("src/ImgPro/Water_filter.png");
+    SDL_Surface *imgSur3 = IMG_Load("src/image/Water_filter.png");
     NewDownline_imgTexture3 = SDL_CreateTextureFromSurface(renderer, imgSur3);
     NewDownline_imgRect3.x = 50;
     NewDownline_imgRect3.y = 405;
     NewDownline_imgRect3.w = 50;
     NewDownline_imgRect3.h = (int)(NewDownline_imgRect3.w * ((float)imgSur3->h / imgSur3->w));
 
-    SDL_Surface *imgSur4 = IMG_Load("src/ImgPro/Atmosphere.png");
+    SDL_Surface *imgSur4 = IMG_Load("src/image/Atmosphere.png");
     NewDownline_imgTexture4 = SDL_CreateTextureFromSurface(renderer, imgSur4);
     NewDownline_imgRect4.x = 50;
     NewDownline_imgRect4.y = 535;
     NewDownline_imgRect4.w = 50;
     NewDownline_imgRect4.h = (int)(NewDownline_imgRect4.w * ((float)imgSur4->h / imgSur4->w));
 
-    SDL_Surface *imgSur5 = IMG_Load("src/ImgPro/Air_filter.png");
+    SDL_Surface *imgSur5 = IMG_Load("src/image/Air_filter.png");
     NewDownline_imgTexture5 = SDL_CreateTextureFromSurface(renderer, imgSur5);
     NewDownline_imgRect5.x = 390;
     NewDownline_imgRect5.y = 282;
     NewDownline_imgRect5.w = 70;
     NewDownline_imgRect5.h = (int)(NewDownline_imgRect5.w * ((float)imgSur5->h / imgSur5->w));
 
-    SDL_Surface *imgSur6 = IMG_Load("src/ImgPro/Smart_watch.png");
+    SDL_Surface *imgSur6 = IMG_Load("src/image/Smart_watch.png");
     NewDownline_imgTexture6 = SDL_CreateTextureFromSurface(renderer, imgSur6);
     NewDownline_imgRect6.x = 390;
     NewDownline_imgRect6.y = 415;
@@ -103,35 +103,35 @@ void NewDownline_Initial(SDL_Renderer *renderer){
     NewDownline_imgRect6.h = (int)(NewDownline_imgRect6.w * ((float)imgSur6->h / imgSur6->w));
 
     //block sell amount
-    SDL_Surface *imgSur7 = IMG_Load("src/ImgPro/NewDownline_Block.png");
+    SDL_Surface *imgSur7 = IMG_Load("src/image/NewDownline_Block.png");
     NewDownline_imgTexture7 = SDL_CreateTextureFromSurface(renderer, imgSur7);
     NewDownline_imgRect7.x = 135;
     NewDownline_imgRect7.y = 300;
     NewDownline_imgRect7.w = 200;
     NewDownline_imgRect7.h = 50;
 
-    SDL_Surface *imgSur8 = IMG_Load("src/ImgPro/NewDownline_Block.png");
+    SDL_Surface *imgSur8 = IMG_Load("src/image/NewDownline_Block.png");
     NewDownline_imgTexture8 = SDL_CreateTextureFromSurface(renderer, imgSur8);
     NewDownline_imgRect8.x = 135;
     NewDownline_imgRect8.y = 430;
     NewDownline_imgRect8.w = 200;
     NewDownline_imgRect8.h = 50;
 
-    SDL_Surface *imgSur9 = IMG_Load("src/ImgPro/NewDownline_Block.png");
+    SDL_Surface *imgSur9 = IMG_Load("src/image/NewDownline_Block.png");
     NewDownline_imgTexture9 = SDL_CreateTextureFromSurface(renderer, imgSur9);
     NewDownline_imgRect9.x = 135;
     NewDownline_imgRect9.y = 555;
     NewDownline_imgRect9.w = 200;
     NewDownline_imgRect9.h = 50;
 
-    SDL_Surface *imgSur10 = IMG_Load("src/ImgPro/NewDownline_Block.png");
+    SDL_Surface *imgSur10 = IMG_Load("src/image/NewDownline_Block.png");
     NewDownline_imgTexture10 = SDL_CreateTextureFromSurface(renderer, imgSur10);
     NewDownline_imgRect10.x = 500;
     NewDownline_imgRect10.y = 300;
     NewDownline_imgRect10.w = 200;
     NewDownline_imgRect10.h = 50;
 
-    SDL_Surface *imgSur11 = IMG_Load("src/ImgPro/NewDownline_Block.png");
+    SDL_Surface *imgSur11 = IMG_Load("src/image/NewDownline_Block.png");
     NewDownline_imgTexture11 = SDL_CreateTextureFromSurface(renderer, imgSur11);
     NewDownline_imgRect11.x = 500;
     NewDownline_imgRect11.y = 430;
@@ -140,21 +140,21 @@ void NewDownline_Initial(SDL_Renderer *renderer){
 
     //option
 
-    SDL_Surface *imgSur12 = IMG_Load("src/ImgPro/NewDownline_Random.png");
+    SDL_Surface *imgSur12 = IMG_Load("src/image/NewDownline_Random.png");
     NewDownline_imgTexture12 = SDL_CreateTextureFromSurface(renderer, imgSur12);
     NewDownline_imgRect12.x = 600;
     NewDownline_imgRect12.y = 200;
     NewDownline_imgRect12.w = 100;
     NewDownline_imgRect12.h = (int)(NewDownline_imgRect12.w * ((float)imgSur12->h / imgSur12->w));
 
-    SDL_Surface *imgSur13 = IMG_Load("src/ImgPro/NewDownline_Cancel.png");
+    SDL_Surface *imgSur13 = IMG_Load("src/image/NewDownline_Cancel.png");
     NewDownline_imgTexture13 = SDL_CreateTextureFromSurface(renderer, imgSur13);
     NewDownline_imgRect13.x = 30;
     NewDownline_imgRect13.y = 680;
     NewDownline_imgRect13.w = 150;
     NewDownline_imgRect13.h = (int)(NewDownline_imgRect13.w * ((float)imgSur13->h / imgSur13->w));
 
-    SDL_Surface *imgSur14 = IMG_Load("src/ImgPro/NewDownline_Submit.png");
+    SDL_Surface *imgSur14 = IMG_Load("src/image/NewDownline_Submit.png");
     NewDownline_imgTexture14 = SDL_CreateTextureFromSurface(renderer, imgSur14);
     NewDownline_imgRect14.x = 570;
     NewDownline_imgRect14.y = 665;

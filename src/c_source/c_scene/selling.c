@@ -43,42 +43,42 @@ void Selling_Initial(SDL_Renderer *renderer){
 
     //image
 
-    SDL_Surface *imgSur1 = IMG_Load("src/ImgPro/selling_Background.png");
+    SDL_Surface *imgSur1 = IMG_Load("src/image/selling_Background.png");
     Selling_imgTexture1 = SDL_CreateTextureFromSurface(renderer, imgSur1);
     Selling_imgRect1.x = 40;
     Selling_imgRect1.y = 25;
     Selling_imgRect1.w = 680;
     Selling_imgRect1.h = 90;
 
-    SDL_Surface *imgSur2 = IMG_Load("src/ImgPro/selling_Tree.png");
+    SDL_Surface *imgSur2 = IMG_Load("src/image/selling_Tree.png");
     Selling_imgTexture2 = SDL_CreateTextureFromSurface(renderer, imgSur2);
     Selling_imgRect2.x = 10;
     Selling_imgRect2.y = 150;
     Selling_imgRect2.w = 500;
     Selling_imgRect2.h = 510;
 
-    SDL_Surface *imgSur3 = IMG_Load("src/ImgPro/selling_price.png");
+    SDL_Surface *imgSur3 = IMG_Load("src/image/selling_price.png");
     Selling_imgTexture3 = SDL_CreateTextureFromSurface(renderer, imgSur3);
     Selling_imgRect3.x = 515;
     Selling_imgRect3.y = 250;
     Selling_imgRect3.w = 220;
     Selling_imgRect3.h = (int)(Selling_imgRect3.w * ((float)imgSur3->h / imgSur3->w));
 
-    SDL_Surface *imgSur4 = IMG_Load("src/ImgPro/selling_PriceFix2.png");
+    SDL_Surface *imgSur4 = IMG_Load("src/image/selling_PriceFix2.png");
     Selling_imgTexture4 = SDL_CreateTextureFromSurface(renderer, imgSur4);
     Selling_imgRect4.x = 515;
     Selling_imgRect4.y = 420;
     Selling_imgRect4.w = 220;
     Selling_imgRect4.h = (int)(Selling_imgRect4.w * ((float)imgSur4->h / imgSur4->w));
 
-    SDL_Surface *imgSur5 = IMG_Load("src/ImgPro/selling_OK.png");
+    SDL_Surface *imgSur5 = IMG_Load("src/image/selling_OK.png");
     Selling_imgTexture5 = SDL_CreateTextureFromSurface(renderer, imgSur5);
     Selling_imgRect5.x = 580;
     Selling_imgRect5.y = 550;
     Selling_imgRect5.w = 90;
     Selling_imgRect5.h = (int)(Selling_imgRect5.w * ((float)imgSur5->h / imgSur5->w));
 
-    SDL_Surface *imgSur6 = IMG_Load("src/ImgPro/Back.png");
+    SDL_Surface *imgSur6 = IMG_Load("src/image/Back.png");
     Selling_imgTexture6 = SDL_CreateTextureFromSurface(renderer, imgSur6);
     Selling_imgRect6.x = 25;
     Selling_imgRect6.y = 680;
@@ -87,35 +87,35 @@ void Selling_Initial(SDL_Renderer *renderer){
 
     //img_product
 
-    SDL_Surface *imgSur7 = IMG_Load("src/ImgPro/eSpring.png");
+    SDL_Surface *imgSur7 = IMG_Load("src/image/eSpring.png");
     Selling_imgTexture7 = SDL_CreateTextureFromSurface(renderer, imgSur7);
     Selling_imgRect7.x = 65;
     Selling_imgRect7.y = 260;
     Selling_imgRect7.w = 80;
     Selling_imgRect7.h = (int)(Selling_imgRect7.w * ((float)imgSur7->h / imgSur7->w));
 
-    SDL_Surface *imgSur8 = IMG_Load("src/ImgPro/Water_filter.png");
+    SDL_Surface *imgSur8 = IMG_Load("src/image/Water_filter.png");
     Selling_imgTexture8 = SDL_CreateTextureFromSurface(renderer, imgSur8);
     Selling_imgRect8.x = 225;
     Selling_imgRect8.y = 260;
     Selling_imgRect8.w = 80;
     Selling_imgRect8.h = (int)(Selling_imgRect8.w * ((float)imgSur8->h / imgSur8->w));
 
-    SDL_Surface *imgSur9 = IMG_Load("src/ImgPro/Atmosphere.png");
+    SDL_Surface *imgSur9 = IMG_Load("src/image/Atmosphere.png");
     Selling_imgTexture9 = SDL_CreateTextureFromSurface(renderer, imgSur9);
     Selling_imgRect9.x = 385;
     Selling_imgRect9.y = 260;
     Selling_imgRect9.w = 80;
     Selling_imgRect9.h = (int)(Selling_imgRect9.w * ((float)imgSur9->h / imgSur9->w));
 
-    SDL_Surface *imgSur10 = IMG_Load("src/ImgPro/Air_filter.png");
+    SDL_Surface *imgSur10 = IMG_Load("src/image/Air_filter.png");
     Selling_imgTexture10 = SDL_CreateTextureFromSurface(renderer, imgSur10);
     Selling_imgRect10.x = 110;
     Selling_imgRect10.y = 460;
     Selling_imgRect10.w = 110;
     Selling_imgRect10.h = (int)(Selling_imgRect10.w * ((float)imgSur10->h / imgSur10->w));
 
-    SDL_Surface *imgSur11 = IMG_Load("src/ImgPro/Smart_watch.png");
+    SDL_Surface *imgSur11 = IMG_Load("src/image/Smart_watch.png");
     Selling_imgTexture11 = SDL_CreateTextureFromSurface(renderer, imgSur11);
     Selling_imgRect11.x = 290;
     Selling_imgRect11.y = 460;
