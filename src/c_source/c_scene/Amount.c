@@ -151,7 +151,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     //text
 
-    TTF_Font *fFont1 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 45);
+    TTF_Font *fFont1 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 45);
     SDL_Color fColor1 = {0, 0, 0, 255};
     SDL_Surface *textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, "Selling amount", fColor1, 750);
     Amount_texTexture1 = SDL_CreateTextureFromSurface(renderer, textSur1);
@@ -162,7 +162,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     SDL_FreeSurface(textSur1);
 
-    TTF_Font *fFont2 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 30);
+    TTF_Font *fFont2 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 30);
     SDL_Color fColor2 = {0, 0, 0, 255};
     SDL_Surface *textSur2 = TTF_RenderText_Blended_Wrapped(fFont2, "Amount", fColor2, 720);
     Amount_texTexture2 = SDL_CreateTextureFromSurface(renderer, textSur2);
@@ -173,7 +173,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     SDL_FreeSurface(textSur2);
 
-    TTF_Font *fFont3 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 30);
+    TTF_Font *fFont3 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 30);
     SDL_Color fColor3 = {0, 0, 0, 255};
     SDL_Surface *textSur3 = TTF_RenderText_Blended_Wrapped(fFont3, "Fix", fColor3, 720);
     Amount_texTexture3 = SDL_CreateTextureFromSurface(renderer, textSur3);
@@ -184,7 +184,7 @@ void Amount_Initial(SDL_Renderer *renderer){
 
     SDL_FreeSurface(textSur3);
 
-    TTF_Font *fFont4 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 20);
+    TTF_Font *fFont4 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 20);
     SDL_Color fColor4 = {2, 54, 81, 255};
     SDL_Surface *textSur4 = TTF_RenderText_Blended_Wrapped(fFont3, "OK", fColor3, 720);
     Amount_texTexture4 = SDL_CreateTextureFromSurface(renderer, textSur4);
@@ -270,7 +270,7 @@ void Amount_UserInputPrice(SDL_Renderer *renderer, struct eventTrigger *eventDat
             strcpy(Amount_Input, "0");
     }
     if(strlen(Amount_Input) == 0) strcpy(Amount_Input, "0");
-    TTF_Font *fFont1 = TTF_OpenFont("Alegreya-VariableFont_wght.ttf", 30);
+    TTF_Font *fFont1 = TTF_OpenFont("src/font/Alegreya-VariableFont_wght.ttf", 30);
     SDL_Color fColor1 = {0, 0, 0, 255};
     SDL_Surface *textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, Amount_Input, fColor1, 750);
     SDL_Texture *textTex = SDL_CreateTextureFromSurface(renderer, textSur1);
@@ -283,7 +283,7 @@ void Amount_UserInputPrice(SDL_Renderer *renderer, struct eventTrigger *eventDat
 }
 
 void Amount_dataInformation(SDL_Renderer *renderer, struct eventTrigger *eventData){
-    TTF_Font *fFont1 = TTF_OpenFont("Alegreya-VariableFont_wght.ttf", 30);
+    TTF_Font *fFont1 = TTF_OpenFont("src/font/Alegreya-VariableFont_wght.ttf", 30);
     SDL_Color fColor1 = {0, 0, 0, 255};
     if(Amount_currentHover == AmountSelected){
         fColor1.r = 26;

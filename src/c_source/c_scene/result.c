@@ -160,7 +160,7 @@ void Result_Initial(SDL_Renderer *renderer){
     //text
 
 
-    TTF_Font *fFont1 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 45);
+    TTF_Font *fFont1 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 45);
     SDL_Color fColor1 = {0, 0, 0, 255};
     SDL_Surface *textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, "Result", fColor1, 750);
     Result_texTexture1 = SDL_CreateTextureFromSurface(renderer, textSur1);
@@ -171,7 +171,7 @@ void Result_Initial(SDL_Renderer *renderer){
     SDL_FreeSurface(textSur1);
     TTF_CloseFont(fFont1);
 
-    TTF_Font *fFont2 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 20);
+    TTF_Font *fFont2 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 20);
     SDL_Color fColor2 = {0, 0, 0, 255};
     SDL_Surface *textSur2 = TTF_RenderText_Blended_Wrapped(fFont2, "All Options", fColor2, 750);
     Result_texTexture2 = SDL_CreateTextureFromSurface(renderer, textSur2);
@@ -182,7 +182,7 @@ void Result_Initial(SDL_Renderer *renderer){
     SDL_FreeSurface(textSur2);
     TTF_CloseFont(fFont2);
 
-    TTF_Font *fFont3 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 14);
+    TTF_Font *fFont3 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 14);
     SDL_Color fColor3 = {0, 0, 0, 255};
     SDL_Surface *textSur3 = TTF_RenderText_Blended_Wrapped(fFont3, "Show", fColor3, 750);
     Result_texTexture3 = SDL_CreateTextureFromSurface(renderer, textSur3);
@@ -193,7 +193,7 @@ void Result_Initial(SDL_Renderer *renderer){
     SDL_FreeSurface(textSur3);
     TTF_CloseFont(fFont3);
 
-    TTF_Font *fFont4 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 14);
+    TTF_Font *fFont4 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 14);
     SDL_Color fColor4 = {0, 0, 0, 255};
     SDL_Surface *textSur4 = TTF_RenderText_Blended_Wrapped(fFont4, "Information", fColor4, 750);
     Result_texTexture4 = SDL_CreateTextureFromSurface(renderer, textSur4);
@@ -204,7 +204,7 @@ void Result_Initial(SDL_Renderer *renderer){
     SDL_FreeSurface(textSur4);
     TTF_CloseFont(fFont4);
 
-    TTF_Font *fFont5 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 14);
+    TTF_Font *fFont5 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 14);
     SDL_Color fColor5 = {0, 0, 0, 255};
     SDL_Surface *textSur5 = TTF_RenderText_Blended_Wrapped(fFont5, "Edit", fColor5, 750);
     Result_texTexture5 = SDL_CreateTextureFromSurface(renderer, textSur5);
@@ -215,7 +215,7 @@ void Result_Initial(SDL_Renderer *renderer){
     SDL_FreeSurface(textSur5);
     TTF_CloseFont(fFont5);
 
-    TTF_Font *fFont6 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 14);
+    TTF_Font *fFont6 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 14);
     SDL_Color fColor6 = {0, 0, 0, 255};
     SDL_Surface *textSur6 = TTF_RenderText_Blended_Wrapped(fFont6, "Selling", fColor6, 750);
     Result_texTexture6 = SDL_CreateTextureFromSurface(renderer, textSur6);
@@ -226,7 +226,7 @@ void Result_Initial(SDL_Renderer *renderer){
     SDL_FreeSurface(textSur6);
     TTF_CloseFont(fFont6);
 
-    TTF_Font *fFont7 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 14);
+    TTF_Font *fFont7 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 14);
     SDL_Color fColor7 = {0, 0, 0, 255};
     SDL_Surface *textSur7 = TTF_RenderText_Blended_Wrapped(fFont7, "Delete", fColor7, 750);
     Result_texTexture7 = SDL_CreateTextureFromSurface(renderer, textSur7);
@@ -237,7 +237,7 @@ void Result_Initial(SDL_Renderer *renderer){
     SDL_FreeSurface(textSur7);
     TTF_CloseFont(fFont7);
 
-    TTF_Font *fFont8 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 14);
+    TTF_Font *fFont8 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 14);
     SDL_Color fColor8 = {0, 0, 0, 255};
     SDL_Surface *textSur8 = TTF_RenderText_Blended_Wrapped(fFont8, "This Person", fColor8, 750);
     Result_texTexture8 = SDL_CreateTextureFromSurface(renderer, textSur8);
@@ -248,7 +248,7 @@ void Result_Initial(SDL_Renderer *renderer){
     SDL_FreeSurface(textSur8);
     TTF_CloseFont(fFont8);
 
-    TTF_Font *fFont9 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 14);
+    TTF_Font *fFont9 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 14);
     SDL_Color fColor9 = {0, 0, 0, 255};
     SDL_Surface *textSur9 = TTF_RenderText_Blended_Wrapped(fFont9, "Add", fColor9, 750);
     Result_texTexture9 = SDL_CreateTextureFromSurface(renderer, textSur9);
@@ -259,7 +259,7 @@ void Result_Initial(SDL_Renderer *renderer){
     SDL_FreeSurface(textSur9);
     TTF_CloseFont(fFont9);
 
-    TTF_Font *fFont10 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 14);
+    TTF_Font *fFont10 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 14);
     SDL_Color fColor10 = {0, 0, 0, 255};
     SDL_Surface *textSur10 = TTF_RenderText_Blended_Wrapped(fFont10, "Downline", fColor10, 750);
     Result_texTexture10 = SDL_CreateTextureFromSurface(renderer, textSur10);
@@ -270,7 +270,7 @@ void Result_Initial(SDL_Renderer *renderer){
     SDL_FreeSurface(textSur10);
     TTF_CloseFont(fFont10);
 
-    TTF_Font *fFont11 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 10);
+    TTF_Font *fFont11 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 10);
     SDL_Color fColor11 = {0, 0, 0, 255};
     SDL_Surface *textSur11 = TTF_RenderText_Blended_Wrapped(fFont11, "Calculate", fColor11, 750);
     Result_texTexture11 = SDL_CreateTextureFromSurface(renderer, textSur11);
@@ -281,7 +281,7 @@ void Result_Initial(SDL_Renderer *renderer){
     SDL_FreeSurface(textSur11);
     TTF_CloseFont(fFont11);
 
-    TTF_Font *fFont12 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 10);
+    TTF_Font *fFont12 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 10);
     SDL_Color fColor12 = {0, 0, 0, 255};
     SDL_Surface *textSur12 = TTF_RenderText_Blended_Wrapped(fFont12, "PV and", fColor12, 750);
     Result_texTexture12 = SDL_CreateTextureFromSurface(renderer, textSur12);
@@ -292,7 +292,7 @@ void Result_Initial(SDL_Renderer *renderer){
     SDL_FreeSurface(textSur12);
     TTF_CloseFont(fFont12);
 
-    TTF_Font *fFont13 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 10);
+    TTF_Font *fFont13 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 10);
     SDL_Color fColor13 = {0, 0, 0, 255};
     SDL_Surface *textSur13 = TTF_RenderText_Blended_Wrapped(fFont13, "Salary", fColor13, 750);
     Result_texTexture13 = SDL_CreateTextureFromSurface(renderer, textSur13);
@@ -372,7 +372,7 @@ void optionHandle(SDL_Renderer *renderer, struct eventTrigger *eventData){
 }
 
 void Result_SearchBar(SDL_Renderer *renderer, struct eventTrigger* eventData){
-    TTF_Font *fFont0 = TTF_OpenFont("Alegreya-VariableFont_wght.ttf", 30);
+    TTF_Font *fFont0 = TTF_OpenFont("src/font/Alegreya-VariableFont_wght.ttf", 30);
     SDL_Color fColor1 = {0, 0, 0, 255};
     if(eventData->isTrigger == 1){
         if(eventData->mouseX >= 418 && eventData->mouseX <= 638 && eventData->mouseY >= 41 && eventData->mouseY<=73){
@@ -435,7 +435,7 @@ void Result_DrawNode(SDL_Renderer *renderer, struct eventTrigger* eventData){
         showNode = Result_currentRoot;
     }
 
-    TTF_Font *fFont0 = TTF_OpenFont("Alegreya-VariableFont_wght.ttf", 20);
+    TTF_Font *fFont0 = TTF_OpenFont("src/font/Alegreya-VariableFont_wght.ttf", 20);
     SDL_Color fColor1 = {0, 0, 0, 255};
 
     Result_nodeRect.x = 10 + 2*Result_nodeRect.w;

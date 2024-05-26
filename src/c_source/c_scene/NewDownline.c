@@ -167,7 +167,7 @@ void NewDownline_Initial(SDL_Renderer *renderer){
 
     //text
 
-    TTF_Font *fFont1 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 55);
+    TTF_Font *fFont1 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 55);
     SDL_Color fColor1 = {0, 0, 0, 255};
     SDL_Surface *textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, "New Downline", fColor1, 750);
     NewDownline_texTexture1 = SDL_CreateTextureFromSurface(renderer, textSur1);
@@ -176,7 +176,7 @@ void NewDownline_Initial(SDL_Renderer *renderer){
     NewDownline_texRect1.w = textSur1->w;
     NewDownline_texRect1.h = textSur1->h;
 
-    TTF_Font *fFont2 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 30);
+    TTF_Font *fFont2 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 30);
     SDL_Color fColor2 = {0, 0, 0, 255};
     SDL_Surface *textSur2 = TTF_RenderText_Blended_Wrapped(fFont2, "NAME", fColor2, 750);
     NewDownline_texTexture2 = SDL_CreateTextureFromSurface(renderer, textSur2);
@@ -185,7 +185,7 @@ void NewDownline_Initial(SDL_Renderer *renderer){
     NewDownline_texRect2.w = textSur2->w;
     NewDownline_texRect2.h = textSur2->h;
 
-    TTF_Font *fFont3 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 30);
+    TTF_Font *fFont3 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 30);
     SDL_Color fColor3 = {0, 0, 0, 255};
     SDL_Surface *textSur3 = TTF_RenderText_Blended_Wrapped(fFont3, "Sell Amount", fColor3, 750);
     NewDownline_texTexture3 = SDL_CreateTextureFromSurface(renderer, textSur3);
@@ -194,7 +194,7 @@ void NewDownline_Initial(SDL_Renderer *renderer){
     NewDownline_texRect3.w = textSur3->w;
     NewDownline_texRect3.h = textSur3->h;
 
-    TTF_Font *fFont4 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 15);
+    TTF_Font *fFont4 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 15);
     SDL_Color fColor4 = {0, 0, 0, 255};
     SDL_Surface *textSur4 = TTF_RenderText_Blended_Wrapped(fFont4, "Cancel", fColor4, 750);
     NewDownline_texTexture4 = SDL_CreateTextureFromSurface(renderer, textSur4);
@@ -203,7 +203,7 @@ void NewDownline_Initial(SDL_Renderer *renderer){
     NewDownline_texRect4.w = textSur4->w;
     NewDownline_texRect4.h = textSur4->h;
 
-    TTF_Font *fFont5 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 15);
+    TTF_Font *fFont5 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 15);
     SDL_Color fColor5 = {0, 0, 0, 255};
     SDL_Surface *textSur5 = TTF_RenderText_Blended_Wrapped(fFont5, "Submit", fColor5, 750);
     NewDownline_texTexture5 = SDL_CreateTextureFromSurface(renderer, textSur5);
@@ -227,7 +227,7 @@ char NDL_currentShift = 'a';
 
 
 void NewDownlineInputData(SDL_Renderer *renderer, struct eventTrigger *eventData){
-    TTF_Font *fFont1 = TTF_OpenFont("Alegreya-VariableFont_wght.ttf", 30);
+    TTF_Font *fFont1 = TTF_OpenFont("src/font/Alegreya-VariableFont_wght.ttf", 30);
     SDL_Color fColor1 = {0, 0, 0, 255};
     if(selecting == 0) fColor1.r = 255;
     SDL_Surface *textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, NDL_UsernameLine, fColor1, 750);

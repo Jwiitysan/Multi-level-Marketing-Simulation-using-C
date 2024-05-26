@@ -82,7 +82,7 @@ void Salary_Initial(SDL_Renderer *renderer){
 
     //text
 
-    TTF_Font *fFont1 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 40);
+    TTF_Font *fFont1 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 40);
     SDL_Color fColor1 = {0, 0, 0, 255};
     SDL_Surface *textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, "Salary", fColor1, 750);
     Salary_texTexture1 = SDL_CreateTextureFromSurface(renderer, textSur1);
@@ -91,7 +91,7 @@ void Salary_Initial(SDL_Renderer *renderer){
     Salary_texRect1.w = textSur1->w;
     Salary_texRect1.h = textSur1->h;
 
-    // TTF_Font *fFont2 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 25);
+    // TTF_Font *fFont2 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 25);
     // SDL_Color fColor2 = {0, 0, 0, 255};
     // SDL_Surface *textSur2 = TTF_RenderText_Blended_Wrapped(fFont2, "Show Table", fColor2, 720);
     // Salary_texTexture2 = SDL_CreateTextureFromSurface(renderer, textSur2);
@@ -112,7 +112,7 @@ NodePtr Salary_currentSelect = NULL;
 NodePtr Salary_currentRoot = NULL;
 
 void Salary_SearchBar(SDL_Renderer *renderer, struct eventTrigger* eventData){
-    TTF_Font *fFont0 = TTF_OpenFont("Alegreya-VariableFont_wght.ttf", 30);
+    TTF_Font *fFont0 = TTF_OpenFont("src/font/Alegreya-VariableFont_wght.ttf", 30);
     SDL_Color fColor1 = {0, 0, 0, 255};
     if(eventData->isTrigger == 1){
         if(eventData->mouseX >= 418 && eventData->mouseX <= 638 && eventData->mouseY >= 41 && eventData->mouseY<=73){
@@ -167,7 +167,7 @@ void Salary_SearchBar(SDL_Renderer *renderer, struct eventTrigger* eventData){
 }
 
 void Salary_ShowTextResult(SDL_Renderer *renderer, struct eventTrigger *eventData){
-    TTF_Font *fFont0 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 40);
+    TTF_Font *fFont0 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 40);
     SDL_Color fColor1 = {0, 0, 0, 255};
     SDL_Surface *searchSur = TTF_RenderText_Blended_Wrapped(fFont0, "INFO", fColor1, 750);
     SDL_Texture *Salary_searchTex = SDL_CreateTextureFromSurface(renderer, searchSur);
@@ -178,7 +178,7 @@ void Salary_ShowTextResult(SDL_Renderer *renderer, struct eventTrigger *eventDat
     SDL_FreeSurface(searchSur);
     SDL_DestroyTexture(Salary_searchTex);
 
-    fFont0 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 20);
+    fFont0 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 20);
 
     searchSur = TTF_RenderText_Blended_Wrapped(fFont0, "Retail Profit", fColor1, 750);
     Salary_searchTex = SDL_CreateTextureFromSurface(renderer, searchSur);
@@ -219,7 +219,7 @@ void Salary_ShowTextResult(SDL_Renderer *renderer, struct eventTrigger *eventDat
         else Salary_currentSelect = Salary_currentRoot;
     }
 
-    fFont0 = TTF_OpenFont("Alegreya-VariableFont_wght.ttf", 30);
+    fFont0 = TTF_OpenFont("src/font/Alegreya-VariableFont_wght.ttf", 30);
     
     searchSur = TTF_RenderText_Blended_Wrapped(fFont0, Salary_currentSelect->name, fColor1, 750);
     Salary_searchTex = SDL_CreateTextureFromSurface(renderer, searchSur);
@@ -280,7 +280,7 @@ void Salary_DrawNode(SDL_Renderer *renderer, struct eventTrigger* eventData){
         showNode = Salary_currentRoot;
     }
 
-    TTF_Font *fFont0 = TTF_OpenFont("Alegreya-VariableFont_wght.ttf", 20);
+    TTF_Font *fFont0 = TTF_OpenFont("src/font/Alegreya-VariableFont_wght.ttf", 20);
     SDL_Color fColor1 = {0, 0, 0, 255};
 
     Salary_nodeRect.x = 10 + 2*Salary_nodeRect.w;

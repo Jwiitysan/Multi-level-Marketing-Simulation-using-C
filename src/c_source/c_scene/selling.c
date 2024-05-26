@@ -125,7 +125,7 @@ void Selling_Initial(SDL_Renderer *renderer){
 
     //text
 
-    TTF_Font *fFont1 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 45);
+    TTF_Font *fFont1 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 45);
     SDL_Color fColor1 = {0, 0, 0, 255};
     SDL_Surface *textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, "Fix the selling price", fColor1, 750);
     Selling_texTexture1 = SDL_CreateTextureFromSurface(renderer, textSur1);
@@ -134,7 +134,7 @@ void Selling_Initial(SDL_Renderer *renderer){
     Selling_texRect1.w = textSur1->w;
     Selling_texRect1.h = textSur1->h;
 
-    TTF_Font *fFont2 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 30);
+    TTF_Font *fFont2 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 30);
     SDL_Color fColor2 = {0, 0, 0, 255};
     SDL_Surface *textSur2 = TTF_RenderText_Blended_Wrapped(fFont2, "Price", fColor2, 720);
     Selling_texTexture2 = SDL_CreateTextureFromSurface(renderer, textSur2);
@@ -143,7 +143,7 @@ void Selling_Initial(SDL_Renderer *renderer){
     Selling_texRect2.w = textSur2->w;
     Selling_texRect2.h = textSur2->h;
 
-    TTF_Font *fFont3 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 30);
+    TTF_Font *fFont3 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 30);
     SDL_Color fColor3 = {0, 0, 0, 255};
     SDL_Surface *textSur3 = TTF_RenderText_Blended_Wrapped(fFont3, "Fix", fColor3, 720);
     Selling_texTexture3 = SDL_CreateTextureFromSurface(renderer, textSur3);
@@ -152,7 +152,7 @@ void Selling_Initial(SDL_Renderer *renderer){
     Selling_texRect3.w = textSur3->w;
     Selling_texRect3.h = textSur3->h;
 
-    TTF_Font *fFont4 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 20);
+    TTF_Font *fFont4 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 20);
     SDL_Color fColor4 = {2, 54, 81, 255};
     SDL_Surface *textSur4 = TTF_RenderText_Blended_Wrapped(fFont3, "OK", fColor3, 720);
     Selling_texTexture4 = SDL_CreateTextureFromSurface(renderer, textSur4);

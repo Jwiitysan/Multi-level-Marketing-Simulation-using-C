@@ -88,7 +88,7 @@ void PersonalInfo_Initial(SDL_Renderer *renderer){
 
     //text
 
-    TTF_Font *fFont1 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 55);
+    TTF_Font *fFont1 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 55);
     SDL_Color fColor1 = {0, 0, 0, 255};
     SDL_Surface *textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, "Personal Info", fColor1, 750);
     PersonalInfo_texTexture1 = SDL_CreateTextureFromSurface(renderer, textSur1);
@@ -97,7 +97,7 @@ void PersonalInfo_Initial(SDL_Renderer *renderer){
     PersonalInfo_texRect1.w = textSur1->w;
     PersonalInfo_texRect1.h = textSur1->h;
 
-    TTF_Font *fFont2 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 30);
+    TTF_Font *fFont2 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 30);
     SDL_Color fColor2 = {0, 0, 0, 255};
     SDL_Surface *textSur2 = TTF_RenderText_Blended_Wrapped(fFont2, "Name", fColor2, 720);
     PersonalInfo_texTexture2 = SDL_CreateTextureFromSurface(renderer, textSur2);
@@ -106,7 +106,7 @@ void PersonalInfo_Initial(SDL_Renderer *renderer){
     PersonalInfo_texRect2.w = textSur2->w;
     PersonalInfo_texRect2.h = textSur2->h;
 
-    TTF_Font *fFont3 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 30);
+    TTF_Font *fFont3 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 30);
     SDL_Color fColor3 = {0, 0, 0, 255};
     SDL_Surface *textSur3 = TTF_RenderText_Blended_Wrapped(fFont3, "BV", fColor3, 720);
     PersonalInfo_texTexture3 = SDL_CreateTextureFromSurface(renderer, textSur3);
@@ -117,7 +117,7 @@ void PersonalInfo_Initial(SDL_Renderer *renderer){
 }
 
 void PersonalInfo_TextShowInformation(SDL_Renderer *renderer, struct eventTrigger *eventData){
-    TTF_Font *fFont0 = TTF_OpenFont("Alegreya-VariableFont_wght.ttf", 25);
+    TTF_Font *fFont0 = TTF_OpenFont("src/font/Alegreya-VariableFont_wght.ttf", 25);
     SDL_Color fColor3 = {0, 0, 0, 255};
     SDL_Surface *textSur3 = TTF_RenderText_Blended_Wrapped(fFont0, sendingNode->name, fColor3, 720);
     SDL_Texture *textTex = SDL_CreateTextureFromSurface(renderer, textSur3);

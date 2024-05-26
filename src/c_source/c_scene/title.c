@@ -70,7 +70,7 @@ void Title_Initial(SDL_Renderer *renderer){
     // SDL_FreeSurface(imgSur1);
     //text
 
-    TTF_Font *fFont1 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 40);
+    TTF_Font *fFont1 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 40);
     SDL_Color fColor1 = {180, 234, 230 , 255};
     SDL_Surface *textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, "Multi-Level Marketing", fColor1, 700);
     Title_texTexture1 = SDL_CreateTextureFromSurface(renderer, textSur1);
@@ -82,7 +82,7 @@ void Title_Initial(SDL_Renderer *renderer){
     // SDL_FreeSurface(textSur1);
     // free(fFont1);
 
-    TTF_Font *fFont2 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 40);
+    TTF_Font *fFont2 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 40);
     SDL_Color fColor2 = {180, 234, 230 , 255};
     SDL_Surface *textSur2 = TTF_RenderText_Blended_Wrapped(fFont2, "Simulation", fColor2, 500);
     Title_texTexture2 = SDL_CreateTextureFromSurface(renderer, textSur2);
@@ -94,7 +94,7 @@ void Title_Initial(SDL_Renderer *renderer){
     // SDL_FreeSurface(textSur2);
     // free(fFont2);
 
-    TTF_Font *fFont3 = TTF_OpenFont("Alegreya-VariableFont_wght.ttf", 20);
+    TTF_Font *fFont3 = TTF_OpenFont("src/font/Alegreya-VariableFont_wght.ttf", 20);
     SDL_Color fColor3 = {2, 54, 81, 255};
     SDL_Surface *textSur3 = TTF_RenderText_Blended_Wrapped(fFont3, "Using Amway Marketing", fColor3, 720);
     Title_texTexture3 = SDL_CreateTextureFromSurface(renderer, textSur3);
@@ -106,7 +106,7 @@ void Title_Initial(SDL_Renderer *renderer){
     // SDL_FreeSurface(textSur3);
     // free(fFont3);
 
-    TTF_Font *fFont4 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 45);
+    TTF_Font *fFont4 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 45);
     SDL_Color fColor4 = {0, 0, 0, 255};
     SDL_Surface *textSur4 = TTF_RenderText_Blended_Wrapped(fFont4, "Start", fColor4, 500);
     Title_texTexture4 = SDL_CreateTextureFromSurface(renderer, textSur4);
@@ -118,7 +118,7 @@ void Title_Initial(SDL_Renderer *renderer){
     // SDL_FreeSurface(textSur4);
     // free(fFont4);
 
-    TTF_Font *fFont5 = TTF_OpenFont("HoltwoodOneSC-Regular.ttf", 45);
+    TTF_Font *fFont5 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 45);
     SDL_Color fColor5 = {0, 0, 0, 255};
     SDL_Surface *textSur5 = TTF_RenderText_Blended_Wrapped(fFont4, "Simulation", fColor5, 500);
     Title_texTexture5 = SDL_CreateTextureFromSurface(renderer, textSur5);
@@ -156,12 +156,3 @@ void Title_DrawScene(SDL_Renderer *renderer){
     
     SDL_RenderPresent(renderer);
 }
-
-// void Title_RunScene(SDL_Renderer *renderer, struct eventTrigger *eventData){
-//     if(Title_CurrentFirstRun){
-//         Title_CurrentFirstRun = 0;
-//         Title_Initial(renderer);
-//     }else{
-//         Title_Run(renderer, eventData);
-//     }
-// }
