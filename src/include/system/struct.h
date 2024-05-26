@@ -11,6 +11,7 @@ struct object{
     void (*clickEvent)();
 };
 
+// The struct used to store the user interface data
 struct eventTrigger{
     int mouseX;
     int mouseY;

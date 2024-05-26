@@ -102,7 +102,7 @@ int main(int argc, char **argv)
         }
     }
 
-
+    // Destroy window and exit program
     SDL_DestroyWindow(window);
     SDL_Quit();
 
