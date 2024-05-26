@@ -1,0 +1,2 @@
+all:
+	g++ -o main main.c NodeHandle.c editOriginalPrice.c src/c_source/c_scene/Table.c src/c_source/c_scene/NewDownline.c src/c_source/c_scene/title.c src/c_source/c_scene/selling.c src/c_source/c_scene/perInfo.c src/c_source/c_scene/salary.c src/c_source/c_scene/result.c src/c_source/c_scene/Amount.c -I src/include -L src/lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -DSDL_MAIN_HANDLED
