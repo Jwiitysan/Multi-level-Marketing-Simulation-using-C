@@ -2,7 +2,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 #include <stdio.h>
-#include <scene/PerInfo.h>
+#include <system/scene.h>
 #include <system/struct.h>
 #include <string.h>
 

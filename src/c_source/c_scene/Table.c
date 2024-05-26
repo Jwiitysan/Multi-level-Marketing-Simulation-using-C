@@ -2,7 +2,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 #include <stdio.h>
-#include <scene/Table.h>
+#include <system/scene.h>
 
 //image
 SDL_Rect Table_imgRect1;

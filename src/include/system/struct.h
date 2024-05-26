@@ -5,12 +5,6 @@
 #define STRUCT_H
 /* ********************************* define structure and global variable in program ********************************* */
 
-struct object{
-    int pos1[2];
-    int pos2[2];
-    void (*clickEvent)();
-};
-
 // The struct used to store the user interface data
 struct eventTrigger{
     // Mouse Position & Clicking (isTrigger)

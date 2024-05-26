@@ -30,8 +30,8 @@ void createTextTexture_Rect(SDL_Renderer *renderer, SDL_Texture **texture, SDL_R
     TTF_CloseFont(fFont);
 }
 
-int isClickOnObject(struct eventTrigger *eventData, SDL_Rect *checkedItem){
-    if(eventData->mouseX > checkedItem->x && eventData->mouseX < checkedItem->x + checkedItem->w && eventData->mouseY > checkedItem->y && eventData->mouseY < checkedItem->y + checkedItem->h){
+int isClickOnObject(struct eventTrigger *eventData, SDL_Rect checkedItem){
+    if(eventData->mouseX >= checkedItem.x && eventData->mouseX <= checkedItem.x + checkedItem.w && eventData->mouseY >= checkedItem.y && eventData->mouseY <= checkedItem.y + checkedItem.h){
         if(eventData->isTrigger == 1) return 2;
         else return 1;
     }

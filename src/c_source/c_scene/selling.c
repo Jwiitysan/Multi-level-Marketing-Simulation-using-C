@@ -2,7 +2,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 #include <stdio.h>
-#include <scene/selling.h>
+#include <system/scene.h>
 
 //image
 SDL_Rect Selling_imgRect1;

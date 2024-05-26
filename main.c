@@ -5,14 +5,7 @@
 #include <stdbool.h>
 #include <system/struct.h>
 #include <system/nodeHandle.h>
-#include <scene/title.h>
-#include <scene/selling.h>
-#include <scene/PerInfo.h>
-#include <scene/Salary.h>
-#include <scene/Result.h>
-#include <scene/Amount.h>
-#include <scene/NewDownline.h>
-#include <scene/Table.h>
+#include <system/scene.h>
 
 // Set the default value of the extern variable in struct.h
 int currentRoom = 0;
@@ -47,7 +40,6 @@ int main(int argc, char **argv)
     PersonalInfo_Initial(renderer);
     Salary_Initial(renderer);
     NewDownline_Initial(renderer);
-    Table_Initial(renderer);
     Result_Initial(renderer);
     Amount_Initial(renderer);
 
@@ -79,7 +71,7 @@ int main(int argc, char **argv)
                 Title_Run(renderer, eventData);
                 break;
             case 1:
-                Result_DrawScene(renderer, eventData);
+                Result_Run(renderer, eventData);
                 break;
             case 2:
                 PersonalInfo_DrawScene(renderer, eventData);
@@ -95,9 +87,6 @@ int main(int argc, char **argv)
                 break;
             case 6:
                 NewDownline_DrawScene(renderer, eventData);
-                break;
-            case 7:
-                Table_DrawScene(renderer);
                 break;
         }
     }
