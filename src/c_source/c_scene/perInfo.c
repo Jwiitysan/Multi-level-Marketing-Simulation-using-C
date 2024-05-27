@@ -42,7 +42,7 @@ void PersonalInfo_TextShowInformation(SDL_Renderer *renderer, struct eventTrigge
     // Show each item selling information
     for(int i=0; i < 5; i++){
         char finalText[100];
-        sprintf(finalText, "%s -> %d x %d (%d)", product[i]->name, sendingNode->produce[2*i+1], sendingNode->produce[2*i], product[i]->price);
+        sprintf(finalText, "%s -> %d x %d (BV: %d)", product[i]->name, sendingNode->produce[2*i+1], sendingNode->produce[2*i], product[i]->price);
         
         createTextTexture_Rect(renderer, &text, (const char* ) finalText, "src/font/Alegreya-VariableFont_wght.ttf", 25, 0, 0, 0, 255, 75, 275+50*i);
         placeObject(renderer, &text);

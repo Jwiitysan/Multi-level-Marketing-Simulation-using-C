@@ -376,6 +376,7 @@ void writeFile(NodePtr Root)
     FILE *pfile;
 
     pfile = fopen("Data.txt","w");
+    clearQueue();
     Enqueue(Root);
     pRun = Root;
     fprintf(pfile,"%s/ %d",pRun->name,pRun->status);

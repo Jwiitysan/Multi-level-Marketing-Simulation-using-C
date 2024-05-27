@@ -4,7 +4,7 @@ void Amount_Initial(SDL_Renderer *renderer);
 void Amount_Run(SDL_Renderer *renderer, struct eventTrigger *eventData);
 
 void NewDownline_Initial(SDL_Renderer *renderer);
-void NewDownline_DrawScene(SDL_Renderer *renderer, struct eventTrigger *eventData);
+void NewDownline_Run(SDL_Renderer *renderer, struct eventTrigger *eventData);
 
 void PersonalInfo_Initial(SDL_Renderer *renderer);
 void PersonalInfo_Run(SDL_Renderer *renderer, struct eventTrigger *eventData);
