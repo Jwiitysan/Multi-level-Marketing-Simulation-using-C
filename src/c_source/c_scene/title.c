@@ -8,24 +8,14 @@
 #include <system/componentLoad.h>
 #include <system/scene.h>
 
-// Declare Image Variable
-SDL_Rect Title_imgRect1;
-SDL_Texture *Title_imgTexture1;
+#define TITLE_IMG_AMOUNT 1
+#define TITLE_TEXT_AMOUNT 5
 
-// Declare Border Variable
+// Declare Object Variable
+objectComponent Title_imgObj[TITLE_IMG_AMOUNT];
+objectComponent Title_textObj[TITLE_TEXT_AMOUNT];
+
 SDL_Rect Title_rect1;
-
-// Declare Text Variable
-SDL_Texture *Title_texTexture1;
-SDL_Rect Title_texRect1;
-SDL_Texture *Title_texTexture2;
-SDL_Rect Title_texRect2;
-SDL_Texture *Title_texTexture3;
-SDL_Rect Title_texRect3;
-SDL_Texture *Title_texTexture4;
-SDL_Rect Title_texRect4;
-SDL_Texture *Title_texTexture5;
-SDL_Rect Title_texRect5;
 
 // Function when click start button
 void StartButtonEvent(){
@@ -40,19 +30,19 @@ void Title_Initial(SDL_Renderer *renderer){
     Title_rect1.h = 165;
 
     //Define Image
-    createIMGTexture_Rect(renderer, &Title_imgTexture1, &Title_imgRect1, "src/image/Title_StartSim.png", 70, 340, 590);
+    createIMGTexture_Rect(renderer, &Title_imgObj[0], "src/image/Title_StartSim.png", 70, 340, 590, -1);
 
     //Define Texts
-    createTextTexture_Rect(renderer, &Title_texTexture1, &Title_texRect1, "Multi-Level Marketing", "src/font/HoltwoodOneSC-Regular.ttf", 40, 180, 234, 230, 255, 70, 100);
-    createTextTexture_Rect(renderer, &Title_texTexture2, &Title_texRect2, "Simulation", "src/font/HoltwoodOneSC-Regular.ttf", 40, 180, 234, 230, 255, 225, 165);
-    createTextTexture_Rect(renderer, &Title_texTexture3, &Title_texRect3, "Using Amway Marketing", "src/font/Alegreya-VariableFont_wght.ttf", 20, 2, 54, 81, 255, 520, 710);
-    createTextTexture_Rect(renderer, &Title_texTexture4, &Title_texRect4, "Start", "src/font/HoltwoodOneSC-Regular.ttf", 45, 0, 0, 0, 255, 280, 380);
-    createTextTexture_Rect(renderer, &Title_texTexture5, &Title_texRect5, "Simulation", "src/font/HoltwoodOneSC-Regular.ttf", 45, 0, 0, 0, 255, 180, 450);
+    createTextTexture_Rect(renderer, &Title_textObj[0], "Multi-Level Marketing", "src/font/HoltwoodOneSC-Regular.ttf", 40, 180, 234, 230, 255, 70, 100);
+    createTextTexture_Rect(renderer, &Title_textObj[1], "Simulation", "src/font/HoltwoodOneSC-Regular.ttf", 40, 180, 234, 230, 255, 225, 165);
+    createTextTexture_Rect(renderer, &Title_textObj[2], "Using Amway Marketing", "src/font/Alegreya-VariableFont_wght.ttf", 20, 2, 54, 81, 255, 520, 710);
+    createTextTexture_Rect(renderer, &Title_textObj[3], "Start", "src/font/HoltwoodOneSC-Regular.ttf", 45, 0, 0, 0, 255, 280, 380);
+    createTextTexture_Rect(renderer, &Title_textObj[4], "Simulation", "src/font/HoltwoodOneSC-Regular.ttf", 45, 0, 0, 0, 255, 180, 450);
 }
 
 void Title_Run(SDL_Renderer *renderer, struct eventTrigger *eventData){
     // When clicking the start button
-    if(isClickOnObject(eventData, Title_imgRect1) == 2)
+    if(isClickOnObject(eventData, &Title_imgObj[0]) == 2)
     {
         StartButtonEvent();
         initialNode(&rootOfMLM); // Build the tree by referring to Data.txt
@@ -61,17 +51,14 @@ void Title_Run(SDL_Renderer *renderer, struct eventTrigger *eventData){
     // Scene Draw
     SDL_SetRenderDrawColor(renderer, 199, 231, 240, 200);
     SDL_RenderClear(renderer);
-
-    SDL_RenderCopy(renderer, Title_imgTexture1, NULL, &Title_imgRect1);
+    placeObject(renderer, &Title_imgObj[0]);
 
     SDL_SetRenderDrawColor(renderer, 1, 19, 74 ,255);
     SDL_RenderFillRect(renderer, &Title_rect1);
 
-    SDL_RenderCopy(renderer, Title_texTexture1, NULL, &Title_texRect1);
-    SDL_RenderCopy(renderer, Title_texTexture2, NULL, &Title_texRect2);
-    SDL_RenderCopy(renderer, Title_texTexture3, NULL, &Title_texRect3);
-    SDL_RenderCopy(renderer, Title_texTexture4, NULL, &Title_texRect4);
-    SDL_RenderCopy(renderer, Title_texTexture5, NULL, &Title_texRect5);
+    for(int i=0; i<TITLE_TEXT_AMOUNT; i++){
+        placeObject(renderer, &Title_textObj[i]);
+    }
     
     SDL_RenderPresent(renderer);
 }

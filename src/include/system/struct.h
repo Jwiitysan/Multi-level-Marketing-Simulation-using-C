@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <SDL2/SDL.h>
 
 #ifndef STRUCT_H
 #define STRUCT_H
@@ -14,6 +15,11 @@ struct eventTrigger{
     // Keybord current type (-1 = default)
     int currentInput;
 };
+
+typedef struct objectComponent{
+    SDL_Rect objectRect;
+    SDL_Texture *objectTexture;
+}objectComponent;
 
 struct node
 {

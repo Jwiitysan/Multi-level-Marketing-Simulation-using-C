@@ -42,12 +42,12 @@ int main(int argc, char **argv)
 
     // Initial each scene's component
     Title_Initial(renderer);
-    Selling_Initial(renderer);
-    PersonalInfo_Initial(renderer);
-    Salary_Initial(renderer);
-    NewDownline_Initial(renderer);
     Result_Initial(renderer);
-    Amount_Initial(renderer);
+    // Selling_Initial(renderer);
+    // PersonalInfo_Initial(renderer);
+    // Salary_Initial(renderer);
+    // NewDownline_Initial(renderer);
+    // Amount_Initial(renderer);
 
     // Main loop
     while(running){
@@ -79,21 +79,21 @@ int main(int argc, char **argv)
             case 1:
                 Result_Run(renderer, eventData);
                 break;
-            case 2:
-                PersonalInfo_DrawScene(renderer, eventData);
-                break;
-            case 3:
-                Selling_DrawScene(renderer);
-                break;
-            case 4:
-                Salary_DrawScene(renderer, eventData);
-                break;
-            case 5:
-                Amount_DrawScene(renderer, eventData);
-                break;
-            case 6:
-                NewDownline_DrawScene(renderer, eventData);
-                break;
+            // case 2:
+            //     PersonalInfo_DrawScene(renderer, eventData);
+            //     break;
+            // case 3:
+            //     Selling_DrawScene(renderer);
+            //     break;
+            // case 4:
+            //     Salary_DrawScene(renderer, eventData);
+            //     break;
+            // case 5:
+            //     Amount_DrawScene(renderer, eventData);
+            //     break;
+            // case 6:
+            //     NewDownline_DrawScene(renderer, eventData);
+            //     break;
         }
     }
 

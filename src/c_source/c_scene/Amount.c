@@ -1,13 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
-#include <stdio.h>
 #include <system/scene.h>
 #include <system/struct.h>
 #include <system/edit.h>
-#include <stdlib.h>
-#include <string.h>
-//image
+#include <system/componentLoad.h>
+
+// Declare Image Variables
 SDL_Rect Amount_imgRect1;
 SDL_Texture *Amount_imgTexture1;
 SDL_Rect Amount_imgRect2;
@@ -20,7 +22,6 @@ SDL_Rect Amount_imgRect5;
 SDL_Texture *Amount_imgTexture5;
 SDL_Rect Amount_imgRect6;
 SDL_Texture *Amount_imgTexture6;
-
 SDL_Rect Amount_imgRect7;
 SDL_Texture *Amount_imgTexture7;
 SDL_Rect Amount_imgRect8;
@@ -32,7 +33,7 @@ SDL_Texture *Amount_imgTexture10;
 SDL_Rect Amount_imgRect11;
 SDL_Texture *Amount_imgTexture11;
 
-//text
+// Declare Text Variables
 SDL_Texture *Amount_texTexture1;
 SDL_Rect Amount_texRect1;
 SDL_Texture *Amount_texTexture2;
@@ -350,7 +351,6 @@ void Amount_DrawScene(SDL_Renderer *renderer, struct eventTrigger *eventData){
     SDL_RenderCopy(renderer, Amount_imgTexture4, NULL, &Amount_imgRect4);
     SDL_RenderCopy(renderer, Amount_imgTexture5, NULL, &Amount_imgRect5);
     SDL_RenderCopy(renderer, Amount_imgTexture6, NULL, &Amount_imgRect6);
-
     SDL_RenderCopy(renderer, Amount_imgTexture7, NULL, &Amount_imgRect7);
     SDL_RenderCopy(renderer, Amount_imgTexture8, NULL, &Amount_imgRect8);
     SDL_RenderCopy(renderer, Amount_imgTexture9, NULL, &Amount_imgRect9);
