@@ -509,14 +509,13 @@ int countHandle = 1;
 char countString[4];
 char nameOfNode[10];
 
-void generateTree(NodePtr Root){
+void generateTreeRecursive(NodePtr Root){
     for(int i=0; i<3; i++){
         itoa(countHandle++, countString, 10);
         if(countHandle > 200) break;
         strcpy(nameOfNode, "Node");
         strcat(nameOfNode, countString);
         addNode(rootOfMLM, Root->name, nameOfNode);
-        printf("Create %s\n", nameOfNode);
     }
     while(rand()%3 != 0){
         itoa(countHandle++, countString, 10);
@@ -524,13 +523,17 @@ void generateTree(NodePtr Root){
         strcpy(nameOfNode, "Node");
         strcat(nameOfNode, countString);
         addNode(rootOfMLM, Root->name, nameOfNode);
-        printf("Create %s\n", nameOfNode);
     }
     if (Root->nextSi != NULL) {
-        generateTree(Root->nextSi);
+        generateTreeRecursive(Root->nextSi);
     }
 
     if (Root->child != NULL) {
-        generateTree(Root->child);
+        generateTreeRecursive(Root->child);
     }
+}
+
+void generateTree(NodePtr Root){
+    countHandle = 1;   
+    generateTreeRecursive(Root); 
 }

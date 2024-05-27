@@ -54,7 +54,6 @@ char NDLAmount4[6] = "0";
 char NDLAmount5[6] = "0";
 
 void NewDownlineInputData(SDL_Renderer *renderer, struct eventTrigger *eventData){
-    TTF_Font *fFont1 = TTF_OpenFont("src/font/Alegreya-VariableFont_wght.ttf", 30);
     objectComponent text;
     
     // Show the current string in Username bar
@@ -197,7 +196,7 @@ void NewDownlineInputData(SDL_Renderer *renderer, struct eventTrigger *eventData
             char alphabet[3];
             alphabet[0] = (char)('0' + eventData->currentInput - SDLK_0);
             alphabet[1] = '\0';
-            
+
             if(strcmp(NDLAmountUsing, "0") == 0){
                 strcpy(NDLAmountUsing, alphabet);
             }else if(strlen(NDLAmountUsing) != 4){
@@ -213,6 +212,7 @@ void NewDownlineInputData(SDL_Renderer *renderer, struct eventTrigger *eventData
 }
 
 void NewDownline_Run(SDL_Renderer *renderer, struct eventTrigger *eventData){
+    // Draw Scene
     SDL_SetRenderDrawColor(renderer, 199, 231, 240, 200);
     SDL_RenderClear(renderer);
 

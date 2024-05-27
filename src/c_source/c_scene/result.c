@@ -12,26 +12,16 @@
 #define RESULT_TEXT_AMOUNT 13
 
 // Declare Variables
-objectComponent Result_nodeObj[2];
-
 objectComponent Result_imgObj[RESULT_IMG_AMOUNT];
 objectComponent Result_textObj[RESULT_TEXT_AMOUNT];
-
-// Set the extern variable corresponding to Searching components in componentLoad.h
-NodePtr previousRoot = NULL;
-NodePtr currentSelect = NULL;
-NodePtr currentRoot = NULL;
-
-SDL_Rect searchbarRect = {418, 41, 638-418, 73-41};
-SDL_Rect searchButtonRect = {657, 38, 711-657, 73-38};
 
 void Result_Initial(SDL_Renderer *renderer){
     currentSelect = rootOfMLM;
     currentRoot = rootOfMLM;
     
     // Define Image
-    createIMGTexture_Rect(renderer, &Result_nodeObj[0], "src/image/NodeActive1.png", 170, 180, 80, -1);
-    createIMGTexture_Rect(renderer, &Result_nodeObj[1], "src/image/NodeActive2.png", 170, 180, 80, -1);
+    createIMGTexture_Rect(renderer, &nodeObj[0], "src/image/NodeActive1.png", 170, 180, 80, -1);
+    createIMGTexture_Rect(renderer, &nodeObj[1], "src/image/NodeActive2.png", 170, 180, 80, -1);
     createIMGTexture_Rect(renderer, &Result_imgObj[0], "src/image/Result_Background.png", 30, 30, 300, -1);
     createIMGTexture_Rect(renderer, &Result_imgObj[1], "src/image/Result_search.png", 400, 30, 330, -1);
     createIMGTexture_Rect(renderer, &Result_imgObj[2], "src/image/Result_BackgroundAllOption.png", 480, 180, 250, -1);
@@ -129,170 +119,6 @@ void optionHandle(SDL_Renderer *renderer, struct eventTrigger *eventData){
     }
 }
 
-// Seaching Function
-void SearchBar(SDL_Renderer *renderer, struct eventTrigger* eventData){
-    // Create a checked object to fit into the isClickOnObject function
-    objectComponent searchbarCheckObj, searchButtonCheckObj;
-    searchbarCheckObj.objectRect = searchbarRect;
-    searchButtonCheckObj.objectRect = searchButtonRect;
-
-    // Define Red color variable
-    int isRed = 0;
-    if(eventData->isTrigger == 1){
-        // Check if using search bar
-        if(isClickOnObject(eventData, &searchbarCheckObj) > 0){
-            searchBarUsing = 1;
-        }
-        else{
-            searchBarUsing = 0;
-        }
-        // when click on search button
-        if(isClickOnObject(eventData, &searchButtonCheckObj) > 0){
-            // if type "back", it will set the root to the last root
-            if(strcmp(searchText, "back") == 0){
-                NodePtr temp = currentRoot;
-                currentRoot = previousRoot;
-                previousRoot = temp;
-            // if type "parent", it will set the root to the parent of this node
-            }else if(strcmp(searchText, "parent") == 0 && currentRoot != rootOfMLM){
-                previousRoot = currentRoot;
-                NodePtr prevRoot = searchprevNode(rootOfMLM, currentRoot->name);
-                while(prevRoot->nextSi == currentRoot){
-                    currentRoot = prevRoot;
-                    prevRoot = searchprevNode(rootOfMLM, currentRoot->name); 
-                }
-                currentRoot = prevRoot;
-            }
-            // Otherwise, it will set the root to the name that user type
-            else{
-                previousRoot = currentRoot;
-                currentRoot = searchNode(rootOfMLM, searchText);
-            }
-        }
-    }
-    // When using the search bar
-    if(searchBarUsing == 1){
-        isRed = 1;
-        // Check if keyboard input is A-Z or 0-9 (Add that letter to search bar if only if the length is less than 11)
-        if((eventData->currentInput >= SDLK_a && eventData->currentInput <= SDLK_z) || (eventData->currentInput >= SDLK_0 && eventData->currentInput <= SDLK_9)){
-            char alphabet[3];
-            alphabet[0] = (char)(currentShift + eventData->currentInput - SDLK_a);
-            alphabet[1] = '\0';
-            if(strcmp(searchText, "|") == 0){
-                strcpy(searchText, alphabet);
-            }else if(strlen(searchText) != 10)
-                strcat(searchText, alphabet);
-        // Check if keyboard input is leftShift (Interchange Uppercase and Lowercase)
-        }if(eventData->currentInput == SDLK_LSHIFT){
-            currentShift = currentShift == 'A' ? 'a' : 'A';
-        // Check if keyboard input is backspace (Delete the letter)
-        }if(eventData->currentInput == SDLK_BACKSPACE){
-            if(strlen(searchText)>=2)
-                searchText[strlen(searchText)-1] = '\0';
-            else if(strlen(searchText) == 1)
-                strcpy(searchText, "|");
-        }
-    }
-
-    // Create text in search bar
-    objectComponent searchTextObj;
-    createTextTexture_Rect(renderer, &searchTextObj, (const char*) searchText, "src/font/Alegreya-VariableFont_wght.ttf", 30, isRed*255, 0, 0, 255, 425, 35);
-    placeObject(renderer, &searchTextObj);
-
-    SDL_DestroyTexture(searchTextObj.objectTexture); // Free Texture (Avoid Memory Leak)
-}
-
-void Result_DrawNode(SDL_Renderer *renderer, struct eventTrigger* eventData){
-    // Initial Node used for refer to current node during screen creation
-    NodePtr showNode = currentRoot;
-    objectComponent Result_currentName;
-    if(showNode == NULL) showNode = currentRoot = rootOfMLM;
-    
-    int isRed; // Check if the node's name should be red
-
-    // Create the root (of subtree) node
-    Result_nodeObj[0].objectRect.x = 10 + 2*Result_nodeObj[0].objectRect.w;
-    Result_nodeObj[0].objectRect.y = 150;
-    int oldW = Result_nodeObj[0].objectRect.w;
-    int bigImgW = Result_nodeObj[0].objectRect.w = 100;
-    int bigImgH = Result_nodeObj[0].objectRect.h = (int)(Result_nodeObj[0].objectRect.w * ((float)Result_nodeObj[0].objectRect.h / oldW));
-    isRed = currentSelect == currentRoot;
-    createTextTexture_Rect(renderer, &Result_currentName, (const char*) showNode->name, "src/font/Alegreya-VariableFont_wght.ttf", 20, isRed*255, 0, 0, 255, 100, 180);
-    placeObject(renderer, &Result_currentName);
-
-    SDL_DestroyTexture(Result_currentName.objectTexture); // Free Texture (Avoid Memory Leak)
-
-    isRed = 0;
-    
-    objectComponent currentObj;
-    placeObject(renderer, &Result_nodeObj[0]);
-
-    Result_nodeObj[0].objectRect.x = 20;
-    Result_nodeObj[0].objectRect.y = 300;
-    oldW = Result_nodeObj[0].objectRect.w;
-    Result_nodeObj[0].objectRect.w = 80;
-    Result_nodeObj[0].objectRect.h = (int)(Result_nodeObj[0].objectRect.w * ((float)Result_nodeObj[0].objectRect.h / oldW));
-
-    int count = 0;
-    int countX = 0;
-    int* Rw = &Result_nodeObj[0].objectRect.w;
-    int* Rh = &Result_nodeObj[0].objectRect.h;
-    int* x = &Result_nodeObj[0].objectRect.x;
-    int* y = &Result_nodeObj[0].objectRect.y;
-
-    // Generate children node to screen
-    showNode = showNode->child;
-    while(showNode != NULL && count < 15){
-        isRed = 0;
-
-        // Don't draw any line or node when status = 0
-        if(showNode->status == 0);
-        // when current showNode is the node which is selected, its name will turn to red
-        else if(showNode == currentSelect){
-            Result_nodeObj[1].objectRect = Result_nodeObj[0].objectRect;
-            placeObject(renderer, &Result_nodeObj[1]);
-
-            SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-            isRed = 1;
-            SDL_RenderDrawLine(renderer, (10 + 2*(*Rw)) + bigImgW/2, 150 + bigImgH, *x + *Rw/2, *y);
-            // Deselect the node
-            if(isClickOnObject(eventData, &Result_nodeObj[0]) == 2){
-                currentSelect = currentRoot;
-            }
-        }
-        // Check if hovering the current showNode
-        else if(isClickOnObject(eventData, &Result_nodeObj[0]) > 0){
-            if(eventData->isTrigger){
-                currentSelect = showNode;
-                strcpy(searchText, showNode->name);
-            }
-            Result_nodeObj[1].objectRect = Result_nodeObj[0].objectRect;
-            placeObject(renderer, &Result_nodeObj[1]);
-
-            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-            SDL_RenderDrawLine(renderer, (10 + 2*(*Rw)) + bigImgW/2, 150 + bigImgH, *x + *Rw/2, *y);
-        }
-        else{
-            placeObject(renderer, &Result_nodeObj[0]);
-        }
-
-        createTextTexture_Rect(renderer, &Result_currentName, (const char*) showNode->name, "src/font/Alegreya-VariableFont_wght.ttf", 20, isRed*255, 0, 0, 255, *x + 10, *y - 25);
-        placeObject(renderer, &Result_currentName);
-        SDL_DestroyTexture(Result_currentName.objectTexture);
-
-        // Move to draw the next node
-        Result_nodeObj[0].objectRect.x += Result_nodeObj[0].objectRect.w;
-        countX++;
-        if(countX == 5){
-            Result_nodeObj[0].objectRect.x = 20;
-            Result_nodeObj[0].objectRect.y += Result_nodeObj[0].objectRect.h + 20;
-            countX = 0;
-        }
-        count++;
-        showNode = showNode->nextSi;
-    }
-}
-
 void Result_Run(SDL_Renderer *renderer, struct eventTrigger* eventData){
     // Draw Scene
     SDL_SetRenderDrawColor(renderer, 199, 231, 240, 200);
@@ -309,7 +135,7 @@ void Result_Run(SDL_Renderer *renderer, struct eventTrigger* eventData){
     }
 
     // Event Function (Draw Node, Search bar, Options)
-    Result_DrawNode(renderer, eventData);
+    DrawNode(renderer, eventData);
     SearchBar(renderer, eventData);
     optionHandle(renderer, eventData);
 

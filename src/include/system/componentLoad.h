@@ -22,5 +22,8 @@ extern char currentShift;
 extern SDL_Rect searchbarRect;
 extern SDL_Rect searchButtonRect;
 
+extern objectComponent nodeObj[2];
+
 void SearchBar(SDL_Renderer *renderer, struct eventTrigger* eventData);
+void DrawNode(SDL_Renderer *renderer, struct eventTrigger* eventData);
 #endif

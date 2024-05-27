@@ -12,11 +12,8 @@ void PersonalInfo_Run(SDL_Renderer *renderer, struct eventTrigger *eventData);
 void Result_Initial(SDL_Renderer *renderer);
 void Result_Run(SDL_Renderer *renderer, struct eventTrigger *eventData);
 
-void Salary_Initial(SDL_Renderer *renderer);
-void Salary_DrawScene(SDL_Renderer *renderer, struct eventTrigger *eventData);
-
-void Selling_Initial(SDL_Renderer *renderer);
-void Selling_DrawScene(SDL_Renderer *renderer);
-
 void Title_Initial(SDL_Renderer *renderer);
 void Title_Run(SDL_Renderer *renderer, struct eventTrigger *eventData);
+
+void Salary_Initial(SDL_Renderer *renderer);
+void Salary_Run(SDL_Renderer *renderer, struct eventTrigger *eventData);
