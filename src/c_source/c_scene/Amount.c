@@ -111,6 +111,7 @@ void Amount_UserInputPrice(SDL_Renderer *renderer, struct eventTrigger *eventDat
     if(eventData->currentInput >= SDLK_0 && eventData->currentInput <= SDLK_9){
         char currentKey[2];
         currentKey[0] = eventData->currentInput - SDLK_0 + '0';
+        currentKey[1] = '\0';
         if(strcmp(Amount_Input, "0") == 0)
             strcpy(Amount_Input, currentKey);
         else if(strlen(Amount_Input) != 4)
@@ -126,7 +127,7 @@ void Amount_UserInputPrice(SDL_Renderer *renderer, struct eventTrigger *eventDat
 
     // Write a string on input bar
     objectComponent text;
-    createTextTexture_Rect(renderer, &text, (const char*) Amount_Input, "src/font/Alegreya-VariableFont_wght.ttf", 30, 0, 0, 0, 255, 600, 440);
+    createTextTexture_Rect(renderer, &text, (const char*) Amount_Input, "src/font/Alegreya-VariableFont_wght.ttf", 30, 255, 0, 0, 255, 600, 440);
 
     placeObject(renderer, &text);
     SDL_DestroyTexture(text.objectTexture); // Free Texture (Avoid Leak Memory)
@@ -163,7 +164,7 @@ void Amount_dataOption(SDL_Renderer *renderer, struct eventTrigger *eventData){
 
     // Show the actual selling price (not BV)
     sprintf(amountString, "%d", sendingNode->produce[2*AmountSelected]);
-    strcat(amountString, " (Acutal Selling Price)");
+    strcat(amountString, " (Actual Selling Price)");
     createTextTexture_Rect(renderer, &text, (const char *) amountString, "src/font/Alegreya-VariableFont_wght.ttf", 18, 0, 0, 0, 255, 550, 320);
     placeObject(renderer, &text);
     SDL_DestroyTexture(text.objectTexture); 
@@ -173,7 +174,7 @@ void Amount_Run(SDL_Renderer *renderer, struct eventTrigger *eventData){
     SDL_SetRenderDrawColor(renderer, 199, 231, 240, 200);
     SDL_RenderClear(renderer);
     // Check if click "Back" Button (Return to "Result" Page)
-    if(isClickOnObject(eventData, &Amount_imgObj[5])){
+    if(isClickOnObject(eventData, &Amount_imgObj[5]) == 2){
         currentRoom = 1;
     }
 

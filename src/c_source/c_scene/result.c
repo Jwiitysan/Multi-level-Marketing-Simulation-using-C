@@ -120,6 +120,9 @@ void optionHandle(SDL_Renderer *renderer, struct eventTrigger *eventData){
 }
 
 void Result_Run(SDL_Renderer *renderer, struct eventTrigger* eventData){
+    // Force to select root when current selection is NULL
+    if(currentSelect == NULL) currentSelect = currentRoot;
+
     // Draw Scene
     SDL_SetRenderDrawColor(renderer, 199, 231, 240, 200);
     SDL_RenderClear(renderer);

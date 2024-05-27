@@ -17,12 +17,41 @@ NodePtr currentRoot = NULL;
 SDL_Rect searchbarRect = {418, 41, 638-418, 73-41};
 SDL_Rect searchButtonRect = {657, 38, 711-657, 73-38};
 
+void searchResult(){
+    // if type "back", it will set the root to the last root
+    if(strcmp(searchText, "back") == 0){
+        NodePtr temp = currentRoot;
+        currentRoot = previousRoot;
+        previousRoot = temp;
+    // if type "parent", it will set the root to the parent of this node
+    }else if(strcmp(searchText, "parent") == 0 && currentRoot != rootOfMLM){
+        previousRoot = currentRoot;
+        NodePtr prevRoot = searchprevNode(rootOfMLM, currentRoot->name);
+        while(prevRoot->nextSi == currentRoot){
+            currentRoot = prevRoot;
+            prevRoot = searchprevNode(rootOfMLM, currentRoot->name); 
+        }
+        currentRoot = prevRoot;
+    }
+    // Otherwise, it will set the root to the name that user type
+    else{
+        previousRoot = currentRoot;
+        currentRoot = searchNode(rootOfMLM, searchText);
+        currentSelect = currentRoot;
+    }
+}
+
 // Seaching Function
 void SearchBar(SDL_Renderer *renderer, struct eventTrigger* eventData){
     // Create a checked object to fit into the isClickOnObject function
     objectComponent searchbarCheckObj, searchButtonCheckObj;
     searchbarCheckObj.objectRect = searchbarRect;
     searchButtonCheckObj.objectRect = searchButtonRect;
+
+    // When press "Return" on keyboard (Search the Node)
+    if(eventData->currentInput == SDLK_RETURN){
+        searchResult();
+    }
 
     // Define Red color variable
     int isRed = 0;
@@ -36,26 +65,7 @@ void SearchBar(SDL_Renderer *renderer, struct eventTrigger* eventData){
         }
         // when click on search button
         if(isClickOnObject(eventData, &searchButtonCheckObj) > 0){
-            // if type "back", it will set the root to the last root
-            if(strcmp(searchText, "back") == 0){
-                NodePtr temp = currentRoot;
-                currentRoot = previousRoot;
-                previousRoot = temp;
-            // if type "parent", it will set the root to the parent of this node
-            }else if(strcmp(searchText, "parent") == 0 && currentRoot != rootOfMLM){
-                previousRoot = currentRoot;
-                NodePtr prevRoot = searchprevNode(rootOfMLM, currentRoot->name);
-                while(prevRoot->nextSi == currentRoot){
-                    currentRoot = prevRoot;
-                    prevRoot = searchprevNode(rootOfMLM, currentRoot->name); 
-                }
-                currentRoot = prevRoot;
-            }
-            // Otherwise, it will set the root to the name that user type
-            else{
-                previousRoot = currentRoot;
-                currentRoot = searchNode(rootOfMLM, searchText);
-            }
+            searchResult();
         }
     }
     // When using the search bar
@@ -71,16 +81,16 @@ void SearchBar(SDL_Renderer *renderer, struct eventTrigger* eventData){
             }else if(strlen(searchText) != 10)
                 strcat(searchText, alphabet);
         // Check if keyboard input is leftShift (Interchange Uppercase and Lowercase)
-        }if(eventData->currentInput == SDLK_LSHIFT){
+        }else if(eventData->currentInput == SDLK_LSHIFT){
             currentShift = currentShift == 'A' ? 'a' : 'A';
         // Check if keyboard input is backspace (Delete the letter)
-        }if(eventData->currentInput == SDLK_BACKSPACE){
+        }else if(eventData->currentInput == SDLK_BACKSPACE){
             if(strlen(searchText)>=2)
                 searchText[strlen(searchText)-1] = '\0';
             else if(strlen(searchText) == 1)
                 strcpy(searchText, "|");
         }
-    }
+}
 
     // Create text in search bar
     objectComponent searchTextObj;
