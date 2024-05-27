@@ -151,7 +151,7 @@ void NewDownlineInputData(SDL_Renderer *renderer, struct eventTrigger *eventData
 
     // Check if selecting "Username" bar (Keyboard control)
     if(selecting == 0){
-        if(eventData->currentInput >= SDLK_a && eventData->currentInput <= SDLK_z && strlen(NDL_UsernameLine) <= 10){ // Only A-Z or a-z
+        if(eventData->currentInput >= SDLK_a && eventData->currentInput <= SDLK_z && strlen(NDL_UsernameLine) < 10){ // Only A-Z or a-z
             // Create string to store only 1 character (Use for strcat)
             char alphabet[3];
             alphabet[0] = (char)(currentShift + eventData->currentInput - SDLK_a);
@@ -159,8 +159,7 @@ void NewDownlineInputData(SDL_Renderer *renderer, struct eventTrigger *eventData
 
             if(strcmp(NDL_UsernameLine, "|") == 0){
                 strcpy(NDL_UsernameLine, alphabet);
-            }else if(strlen(NDL_UsernameLine) != 10)
-                strcat(NDL_UsernameLine, alphabet);
+            }else strcat(NDL_UsernameLine, alphabet);
         }if(eventData->currentInput == SDLK_LSHIFT){
             currentShift = currentShift == 'A' ? 'a' : 'A';
         }if(eventData->currentInput == SDLK_BACKSPACE){

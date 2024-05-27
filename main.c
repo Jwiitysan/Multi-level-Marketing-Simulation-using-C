@@ -14,7 +14,7 @@ NodePtr rootOfMLM = NULL;
 NodePtr sendingNode = NULL;
 
 // Set the default value of the extern variable (SearchBar) in componentLoad.h
-char searchText[10] = "NULL";
+char searchText[11] = "|";
 int searchBarUsing = 0;
 char currentShift = 'a';
 

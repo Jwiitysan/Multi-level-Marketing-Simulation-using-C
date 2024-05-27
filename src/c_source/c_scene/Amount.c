@@ -164,8 +164,8 @@ void Amount_dataOption(SDL_Renderer *renderer, struct eventTrigger *eventData){
 
     // Show the actual selling price (not BV)
     sprintf(amountString, "%d", sendingNode->produce[2*AmountSelected]);
-    strcat(amountString, " (Actual Selling Price)");
-    createTextTexture_Rect(renderer, &text, (const char *) amountString, "src/font/Alegreya-VariableFont_wght.ttf", 18, 0, 0, 0, 255, 550, 320);
+    strcat(amountString, " (Selling Price)");
+    createTextTexture_Rect(renderer, &text, (const char *) amountString, "src/font/Alegreya-VariableFont_wght.ttf", 18, 0, 0, 0, 255, 530, 330);
     placeObject(renderer, &text);
     SDL_DestroyTexture(text.objectTexture); 
 }

@@ -71,18 +71,18 @@ void SearchBar(SDL_Renderer *renderer, struct eventTrigger* eventData){
     // When using the search bar
     if(searchBarUsing == 1){
         isRed = 1;
-        // Check if keyboard input is A-Z or 0-9 (Add that letter to search bar if only if the length is less than 11)
-        if((eventData->currentInput >= SDLK_a && eventData->currentInput <= SDLK_z) || (eventData->currentInput >= SDLK_0 && eventData->currentInput <= SDLK_9)){
-            char alphabet[3];
+        // Check if keyboard input is A-Z or 0-9 (Add that letter to search bar if only if the length is less than 10)
+        if(((eventData->currentInput >= SDLK_a && eventData->currentInput <= SDLK_z) || 
+        (eventData->currentInput >= SDLK_0 && eventData->currentInput <= SDLK_9)) && strlen(searchText) < 10){
+            char alphabet[2];
             alphabet[0] = (char)(currentShift + eventData->currentInput - SDLK_a);
             alphabet[1] = '\0';
             if(strcmp(searchText, "|") == 0){
                 strcpy(searchText, alphabet);
-            }else if(strlen(searchText) != 10)
-                strcat(searchText, alphabet);
+            }else strcat(searchText, alphabet);
         // Check if keyboard input is leftShift (Interchange Uppercase and Lowercase)
         }else if(eventData->currentInput == SDLK_LSHIFT){
-            currentShift = currentShift == 'A' ? 'a' : 'A';
+            currentShift = (currentShift == 'A') ? 'a' : 'A';
         // Check if keyboard input is backspace (Delete the letter)
         }else if(eventData->currentInput == SDLK_BACKSPACE){
             if(strlen(searchText)>=2)
@@ -90,6 +90,7 @@ void SearchBar(SDL_Renderer *renderer, struct eventTrigger* eventData){
             else if(strlen(searchText) == 1)
                 strcpy(searchText, "|");
         }
+
 }
 
     // Create text in search bar

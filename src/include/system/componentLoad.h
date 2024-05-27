@@ -16,7 +16,7 @@ extern NodePtr previousRoot;
 extern NodePtr currentSelect;
 extern NodePtr currentRoot;
 
-extern char searchText[10];
+extern char searchText[11];
 extern int searchBarUsing;
 extern char currentShift;
 extern SDL_Rect searchbarRect;

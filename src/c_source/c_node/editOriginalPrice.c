@@ -20,7 +20,10 @@ void editSellAmount(char *stringName ,int newSellAmount ,int LocationItem ,NodeP
     pNode = searchNode(Root,stringName);
     clearQueue();
     table = pNode->produce;
-    if(*(table+(LocationItem*2)+1) == 0){
+    if(newSellAmount == 0){
+        *(table+(LocationItem*2)) = 0;
+    }
+    else if(*(table+(LocationItem*2)+1) == 0){
         *(table+(LocationItem*2)) = (int)(product[LocationItem]->price * (100-rand()%8)/100.0f);
     } 
     *(table+(LocationItem*2)+1) = newSellAmount;
