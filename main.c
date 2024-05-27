@@ -47,7 +47,7 @@ int main(int argc, char **argv)
     // Selling_Initial(renderer);
     // Salary_Initial(renderer);
     // NewDownline_Initial(renderer);
-    // Amount_Initial(renderer);
+    Amount_Initial(renderer);
 
     // Main loop
     while(running){
@@ -88,9 +88,9 @@ int main(int argc, char **argv)
             // case 4:
             //     Salary_DrawScene(renderer, eventData);
             //     break;
-            // case 5:
-            //     Amount_DrawScene(renderer, eventData);
-            //     break;
+            case 5:
+                Amount_Run(renderer, eventData);
+                break;
             // case 6:
             //     NewDownline_DrawScene(renderer, eventData);
             //     break;

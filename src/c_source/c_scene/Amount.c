@@ -9,244 +9,93 @@
 #include <system/edit.h>
 #include <system/componentLoad.h>
 
-// Declare Image Variables
-SDL_Rect Amount_imgRect1;
-SDL_Texture *Amount_imgTexture1;
-SDL_Rect Amount_imgRect2;
-SDL_Texture *Amount_imgTexture2;
-SDL_Rect Amount_imgRect3;
-SDL_Texture *Amount_imgTexture3;
-SDL_Rect Amount_imgRect4;
-SDL_Texture *Amount_imgTexture4;
-SDL_Rect Amount_imgRect5;
-SDL_Texture *Amount_imgTexture5;
-SDL_Rect Amount_imgRect6;
-SDL_Texture *Amount_imgTexture6;
-SDL_Rect Amount_imgRect7;
-SDL_Texture *Amount_imgTexture7;
-SDL_Rect Amount_imgRect8;
-SDL_Texture *Amount_imgTexture8;
-SDL_Rect Amount_imgRect9;
-SDL_Texture *Amount_imgTexture9;
-SDL_Rect Amount_imgRect10;
-SDL_Texture *Amount_imgTexture10;
-SDL_Rect Amount_imgRect11;
-SDL_Texture *Amount_imgTexture11;
+#define AMOUNT_IMG_AMOUNT 11
+#define AMOUNT_TEXT_AMOUNT 4
 
-// Declare Text Variables
-SDL_Texture *Amount_texTexture1;
-SDL_Rect Amount_texRect1;
-SDL_Texture *Amount_texTexture2;
-SDL_Rect Amount_texRect2;
-SDL_Texture *Amount_texTexture3;
-SDL_Rect Amount_texRect3;
-SDL_Texture *Amount_texTexture4;
-SDL_Rect Amount_texRect4;
-
+// Declare Variables
+objectComponent Amount_imgObj[AMOUNT_IMG_AMOUNT];
+objectComponent Amount_textObj[AMOUNT_TEXT_AMOUNT];
 
 void Amount_Initial(SDL_Renderer *renderer){
 
-    //image
+    // Define Images
+    createIMGTexture_Rect(renderer, &Amount_imgObj[0], "src/image/Amount_Background.png", 110, 25, 530, 90);
+    createIMGTexture_Rect(renderer, &Amount_imgObj[1], "src/image/selling_Tree.png", 10, 150, 500, 510);
+    createIMGTexture_Rect(renderer, &Amount_imgObj[2], "src/image/Amount_Amount.png", 515, 250, 220, -1);
+    createIMGTexture_Rect(renderer, &Amount_imgObj[3], "src/image/selling_PriceFix2.png", 515, 420, 220, -1);
+    createIMGTexture_Rect(renderer, &Amount_imgObj[4], "src/image/selling_OK.png", 580, 550, 90, -1);
+    createIMGTexture_Rect(renderer, &Amount_imgObj[5], "src/image/Back.png", 25, 680, 60, -1);
 
-    SDL_Surface *imgSur1 = IMG_Load("src/image/Amount_Background.png");
-    Amount_imgTexture1 = SDL_CreateTextureFromSurface(renderer, imgSur1);
-    Amount_imgRect1.x = 110;
-    Amount_imgRect1.y = 25;
-    Amount_imgRect1.w = 530;
-    Amount_imgRect1.h = 90;
+    createIMGTexture_Rect(renderer, &Amount_imgObj[6], "src/image/eSpring.png", 65, 260, 80, -1);
+    createIMGTexture_Rect(renderer, &Amount_imgObj[7], "src/image/Water_filter.png", 225, 260, 80, -1);
+    createIMGTexture_Rect(renderer, &Amount_imgObj[8], "src/image/Atmosphere.png", 385, 260, 80, -1);
+    createIMGTexture_Rect(renderer, &Amount_imgObj[9], "src/image/Air_filter.png", 110, 460, 110, -1);
+    createIMGTexture_Rect(renderer, &Amount_imgObj[10], "src/image/Smart_watch.png", 290, 460, 110, -1);
 
-    SDL_FreeSurface(imgSur1);
-
-    SDL_Surface *imgSur2 = IMG_Load("src/image/selling_Tree.png");
-    Amount_imgTexture2 = SDL_CreateTextureFromSurface(renderer, imgSur2);
-    Amount_imgRect2.x = 10;
-    Amount_imgRect2.y = 150;
-    Amount_imgRect2.w = 500;
-    Amount_imgRect2.h = 510;
-
-    SDL_FreeSurface(imgSur2);
-
-    SDL_Surface *imgSur3 = IMG_Load("src/image/Amount_Amount.png");
-    Amount_imgTexture3 = SDL_CreateTextureFromSurface(renderer, imgSur3);
-    Amount_imgRect3.x = 515;
-    Amount_imgRect3.y = 250;
-    Amount_imgRect3.w = 220;
-    Amount_imgRect3.h = (int)(Amount_imgRect3.w * ((float)imgSur3->h / imgSur3->w));
-
-    SDL_FreeSurface(imgSur3);
-
-    SDL_Surface *imgSur4 = IMG_Load("src/image/selling_PriceFix2.png");
-    Amount_imgTexture4 = SDL_CreateTextureFromSurface(renderer, imgSur4);
-    Amount_imgRect4.x = 515;
-    Amount_imgRect4.y = 420;
-    Amount_imgRect4.w = 220;
-    Amount_imgRect4.h = (int)(Amount_imgRect4.w * ((float)imgSur4->h / imgSur4->w));
-
-    SDL_FreeSurface(imgSur4);
-
-    SDL_Surface *imgSur5 = IMG_Load("src/image/selling_OK.png");
-    Amount_imgTexture5 = SDL_CreateTextureFromSurface(renderer, imgSur5);
-    Amount_imgRect5.x = 580;
-    Amount_imgRect5.y = 550;
-    Amount_imgRect5.w = 90;
-    Amount_imgRect5.h = (int)(Amount_imgRect5.w * ((float)imgSur5->h / imgSur5->w));
-
-    SDL_FreeSurface(imgSur5);
-
-    SDL_Surface *imgSur6 = IMG_Load("src/image/Back.png");
-    Amount_imgTexture6 = SDL_CreateTextureFromSurface(renderer, imgSur6);
-    Amount_imgRect6.x = 25;
-    Amount_imgRect6.y = 680;
-    Amount_imgRect6.w = 60;
-    Amount_imgRect6.h = (int)(Amount_imgRect6.w * ((float)imgSur6->h / imgSur6->w));
-
-    SDL_FreeSurface(imgSur6);
-
-    //img_product
-
-    SDL_Surface *imgSur7 = IMG_Load("src/image/eSpring.png");
-    Amount_imgTexture7 = SDL_CreateTextureFromSurface(renderer, imgSur7);
-    Amount_imgRect7.x = 65;
-    Amount_imgRect7.y = 260;
-    Amount_imgRect7.w = 80;
-    Amount_imgRect7.h = (int)(Amount_imgRect7.w * ((float)imgSur7->h / imgSur7->w));
-
-    SDL_FreeSurface(imgSur7);
-
-    SDL_Surface *imgSur8 = IMG_Load("src/image/Water_filter.png");
-    Amount_imgTexture8 = SDL_CreateTextureFromSurface(renderer, imgSur8);
-    Amount_imgRect8.x = 225;
-    Amount_imgRect8.y = 260;
-    Amount_imgRect8.w = 80;
-    Amount_imgRect8.h = (int)(Amount_imgRect8.w * ((float)imgSur8->h / imgSur8->w));
-
-    SDL_FreeSurface(imgSur8);
-
-    SDL_Surface *imgSur9 = IMG_Load("src/image/Atmosphere.png");
-    Amount_imgTexture9 = SDL_CreateTextureFromSurface(renderer, imgSur9);
-    Amount_imgRect9.x = 385;
-    Amount_imgRect9.y = 260;
-    Amount_imgRect9.w = 80;
-    Amount_imgRect9.h = (int)(Amount_imgRect9.w * ((float)imgSur9->h / imgSur9->w));
-
-    SDL_FreeSurface(imgSur9);
-
-    SDL_Surface *imgSur10 = IMG_Load("src/image/Air_filter.png");
-    Amount_imgTexture10 = SDL_CreateTextureFromSurface(renderer, imgSur10);
-    Amount_imgRect10.x = 110;
-    Amount_imgRect10.y = 460;
-    Amount_imgRect10.w = 110;
-    Amount_imgRect10.h = (int)(Amount_imgRect10.w * ((float)imgSur10->h / imgSur10->w));
-
-    SDL_FreeSurface(imgSur10);
-
-    SDL_Surface *imgSur11 = IMG_Load("src/image/Smart_watch.png");
-    Amount_imgTexture11 = SDL_CreateTextureFromSurface(renderer, imgSur11);
-    Amount_imgRect11.x = 290;
-    Amount_imgRect11.y = 460;
-    Amount_imgRect11.w = 110;
-    Amount_imgRect11.h = (int)(Amount_imgRect11.w * ((float)imgSur11->h / imgSur11->w));
-
-    SDL_FreeSurface(imgSur11);
-
-
-    //text
-
-    TTF_Font *fFont1 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 45);
-    SDL_Color fColor1 = {0, 0, 0, 255};
-    SDL_Surface *textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, "Selling amount", fColor1, 750);
-    Amount_texTexture1 = SDL_CreateTextureFromSurface(renderer, textSur1);
-    Amount_texRect1.x = 140;
-    Amount_texRect1.y = 30;
-    Amount_texRect1.w = textSur1->w;
-    Amount_texRect1.h = textSur1->h;
-
-    SDL_FreeSurface(textSur1);
-
-    TTF_Font *fFont2 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 30);
-    SDL_Color fColor2 = {0, 0, 0, 255};
-    SDL_Surface *textSur2 = TTF_RenderText_Blended_Wrapped(fFont2, "Amount", fColor2, 720);
-    Amount_texTexture2 = SDL_CreateTextureFromSurface(renderer, textSur2);
-    Amount_texRect2.x = 530;
-    Amount_texRect2.y = 195;
-    Amount_texRect2.w = textSur2->w;
-    Amount_texRect2.h = textSur2->h;
-
-    SDL_FreeSurface(textSur2);
-
-    TTF_Font *fFont3 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 30);
-    SDL_Color fColor3 = {0, 0, 0, 255};
-    SDL_Surface *textSur3 = TTF_RenderText_Blended_Wrapped(fFont3, "Fix", fColor3, 720);
-    Amount_texTexture3 = SDL_CreateTextureFromSurface(renderer, textSur3);
-    Amount_texRect3.x = 530;
-    Amount_texRect3.y = 365;
-    Amount_texRect3.w = textSur3->w;
-    Amount_texRect3.h = textSur3->h;
-
-    SDL_FreeSurface(textSur3);
-
-    TTF_Font *fFont4 = TTF_OpenFont("src/font/HoltwoodOneSC-Regular.ttf", 20);
-    SDL_Color fColor4 = {2, 54, 81, 255};
-    SDL_Surface *textSur4 = TTF_RenderText_Blended_Wrapped(fFont3, "OK", fColor3, 720);
-    Amount_texTexture4 = SDL_CreateTextureFromSurface(renderer, textSur4);
-    Amount_texRect4.x = 595;
-    Amount_texRect4.y = 570;
-    Amount_texRect4.w = textSur4->w;
-    Amount_texRect4.h = textSur4->h;
-    
-    SDL_FreeSurface(textSur4);
+    // Define Texts
+    createTextTexture_Rect(renderer, &Amount_textObj[0], "Selling amount", "src/font/HoltwoodOneSC-Regular.ttf", 45, 0, 0, 0, 255, 140, 30);
+    createTextTexture_Rect(renderer, &Amount_textObj[1], "Amount", "src/font/HoltwoodOneSC-Regular.ttf", 30, 0, 0, 0, 255, 530, 195);
+    createTextTexture_Rect(renderer, &Amount_textObj[2], "Fix", "src/font/HoltwoodOneSC-Regular.ttf", 30, 0, 0, 0, 255, 530, 365);
+    createTextTexture_Rect(renderer, &Amount_textObj[3], "OK", "src/font/HoltwoodOneSC-Regular.ttf", 30, 2, 54, 81, 255, 595, 570);
 }
 
+// The function about Selecting Item to change the amount of selling
 char Amount_productName[20];
+char Amount_Input[10];
 int Amount_currentHover = 0;
 int AmountSelected = 0;
-char Amount_Input[10];
 
 void SelectingItem(SDL_Renderer *renderer, struct eventTrigger *eventData){
     char numAmount[20];
-    if(eventData->mouseX >= Amount_imgRect7.x && eventData->mouseX <= Amount_imgRect7.x + Amount_imgRect7.w
-    && eventData->mouseY >= Amount_imgRect7.y && eventData->mouseY <= Amount_imgRect7.y + Amount_imgRect7.h){
+    // Check if hover/click on item 1 (eSpring)
+    if(isClickOnObject(eventData, &Amount_imgObj[6]) > 0){
         Amount_currentHover = 0;
-        if(eventData->isTrigger == 1){
+        if(eventData->isTrigger == 1){ // Check if select item
             AmountSelected = 0;
             itoa(sendingNode->produce[AmountSelected*2+1], numAmount, 10);
             strcpy(Amount_Input, numAmount);
         }
     }
-    else if(eventData->mouseX >= Amount_imgRect8.x && eventData->mouseX <= Amount_imgRect8.x + Amount_imgRect8.w
-    && eventData->mouseY >= Amount_imgRect8.y && eventData->mouseY <= Amount_imgRect8.y + Amount_imgRect8.h){
+    // Check if hover/click on item 2 (Water filter)
+    else if(isClickOnObject(eventData, &Amount_imgObj[7]) > 0){
         Amount_currentHover = 1;
         if(eventData->isTrigger == 1){
             AmountSelected = 1;
             itoa(sendingNode->produce[AmountSelected*2+1], numAmount, 10);
             strcpy(Amount_Input, numAmount);
         }
-    }else if(eventData->mouseX >= Amount_imgRect9.x && eventData->mouseX <= Amount_imgRect9.x + Amount_imgRect9.w
-    && eventData->mouseY >= Amount_imgRect9.y && eventData->mouseY <= Amount_imgRect9.y + Amount_imgRect9.h){
+    }
+    // Check if hover/click on item 3 (Atmosphere)
+    else if(isClickOnObject(eventData, &Amount_imgObj[8]) > 0){
         Amount_currentHover = 2;
         if(eventData->isTrigger == 1){
             AmountSelected = 2;
             itoa(sendingNode->produce[AmountSelected*2+1], numAmount, 10);
             strcpy(Amount_Input, numAmount);
         }
-    }else if(eventData->mouseX >= Amount_imgRect10.x && eventData->mouseX <= Amount_imgRect10.x + Amount_imgRect10.w
-    && eventData->mouseY >= Amount_imgRect10.y && eventData->mouseY <= Amount_imgRect10.y + Amount_imgRect10.h){
+    }
+
+    // Check if hover/click on item 4 (Air filter)
+    else if(isClickOnObject(eventData, &Amount_imgObj[9]) > 0){
         Amount_currentHover = 3;
         if(eventData->isTrigger == 1){
             AmountSelected = 3;
             itoa(sendingNode->produce[AmountSelected*2+1], numAmount, 10);
             strcpy(Amount_Input, numAmount);
         }
-    }else if(eventData->mouseX >= Amount_imgRect11.x && eventData->mouseX <= Amount_imgRect11.x + Amount_imgRect11.w
-    && eventData->mouseY >= Amount_imgRect11.y && eventData->mouseY <= Amount_imgRect11.y + Amount_imgRect11.h){
+    }
+
+    // Check if hover/click on item 5 (Smart Watch)
+    else if(isClickOnObject(eventData, &Amount_imgObj[10]) > 0){
         Amount_currentHover = 4;
         if(eventData->isTrigger == 1){
             AmountSelected = 4;
             itoa(sendingNode->produce[AmountSelected*2+1], numAmount, 10);
             strcpy(Amount_Input, numAmount);
         }
-    }else if(eventData->mouseX >= Amount_imgRect5.x && eventData->mouseX <= Amount_imgRect5.x + Amount_imgRect5.w
-    && eventData->mouseY >= Amount_imgRect5.y && eventData->mouseY <= Amount_imgRect5.y + Amount_imgRect5.h && eventData->isTrigger == 1){
+    
+    // Check if click "OK" Button (Change the amount)
+    }else if(isClickOnObject(eventData, &Amount_imgObj[4]) == 2){
         int newAddOn = (atoi(Amount_Input) - sendingNode->produce[2*AmountSelected+1]) * sendingNode->produce[2*AmountSelected];
         int newAddOnBV = (atoi(Amount_Input) - sendingNode->produce[2*AmountSelected+1]) * product[AmountSelected]->price;
         editSellAmount(sendingNode->name, atoi(Amount_Input), AmountSelected, rootOfMLM);
@@ -256,14 +105,17 @@ void SelectingItem(SDL_Renderer *renderer, struct eventTrigger *eventData){
     }
 }
 
+// The function about User Input (From keyboard)
 void Amount_UserInputPrice(SDL_Renderer *renderer, struct eventTrigger *eventData){
+    // Check if user input in a number (add that number behind current input string)
     if(eventData->currentInput >= SDLK_0 && eventData->currentInput <= SDLK_9){
         char currentKey[2];
         currentKey[0] = eventData->currentInput - SDLK_0 + '0';
         if(strcmp(Amount_Input, "0") == 0)
             strcpy(Amount_Input, currentKey);
-        else
+        else if(strlen(Amount_Input) != 4)
             strcat(Amount_Input, currentKey);
+    // Check if user input backspace (delete the last char)
     }else if(eventData->currentInput == SDLK_BACKSPACE){
         if(strlen(Amount_Input) > 1)
             Amount_Input[strlen(Amount_Input)-1] = '\0';
@@ -271,19 +123,20 @@ void Amount_UserInputPrice(SDL_Renderer *renderer, struct eventTrigger *eventDat
             strcpy(Amount_Input, "0");
     }
     if(strlen(Amount_Input) == 0) strcpy(Amount_Input, "0");
-    TTF_Font *fFont1 = TTF_OpenFont("src/font/Alegreya-VariableFont_wght.ttf", 30);
-    SDL_Color fColor1 = {0, 0, 0, 255};
-    SDL_Surface *textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, Amount_Input, fColor1, 750);
-    SDL_Texture *textTex = SDL_CreateTextureFromSurface(renderer, textSur1);
-    SDL_Rect textRect = {600, 440, textSur1->w, textSur1->h};
 
-    SDL_RenderCopy(renderer, textTex, NULL, &textRect);
-    TTF_CloseFont(fFont1);
-    SDL_FreeSurface(textSur1);
-    SDL_DestroyTexture(textTex);
+    // Write a string on input bar
+    objectComponent text;
+    createTextTexture_Rect(renderer, &text, (const char*) Amount_Input, "src/font/Alegreya-VariableFont_wght.ttf", 30, 0, 0, 0, 255, 600, 440);
+
+    placeObject(renderer, &text);
+    SDL_DestroyTexture(text.objectTexture); // Free Texture (Avoid Leak Memory)
 }
 
-void Amount_dataInformation(SDL_Renderer *renderer, struct eventTrigger *eventData){
+// The function about showing the option to select
+void Amount_dataOption(SDL_Renderer *renderer, struct eventTrigger *eventData){
+    objectComponent text;
+
+    // Show the node name
     TTF_Font *fFont1 = TTF_OpenFont("src/font/Alegreya-VariableFont_wght.ttf", 30);
     SDL_Color fColor1 = {0, 0, 0, 255};
     if(Amount_currentHover == AmountSelected){
@@ -291,80 +144,50 @@ void Amount_dataInformation(SDL_Renderer *renderer, struct eventTrigger *eventDa
         fColor1.g = 19;
         fColor1.b = 237;
     }
-    SDL_Surface *textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, sendingNode->name, fColor1, 750);
-    SDL_Texture *textTex = SDL_CreateTextureFromSurface(renderer, textSur1);
-    SDL_Rect textRect = {102, 134, textSur1->w, textSur1->h};
 
-    SDL_RenderCopy(renderer, textTex, NULL, &textRect);
+    createTextTexture_Rect(renderer, &text, (const char *) sendingNode->name, "src/font/Alegreya-VariableFont_wght.ttf", 30, fColor1.r, fColor1.g, fColor1.b, 255, 102, 134);
+    placeObject(renderer, &text);
+    SDL_DestroyTexture(text.objectTexture);
 
-    fColor1.r = fColor1.g = fColor1.b = 0;
+    // Show the seleting product
+    createTextTexture_Rect(renderer, &text, (const char *) product[AmountSelected]->name, "src/font/Alegreya-VariableFont_wght.ttf", 30, 0, 0, 0, 255, 140, 200);
+    placeObject(renderer, &text);
+    SDL_DestroyTexture(text.objectTexture); 
 
-    SDL_FreeSurface(textSur1);
-    SDL_DestroyTexture(textTex);
-    
-    textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, product[AmountSelected]->name, fColor1, 750);
-    textTex = SDL_CreateTextureFromSurface(renderer, textSur1);
-    SDL_Rect textRect2 = {140, 200, textSur1->w, textSur1->h};
+    // Show the amount of seleting product
+    char amountString[30];
+    sprintf(amountString, "%d", sendingNode->produce[2*AmountSelected+1]);
+    createTextTexture_Rect(renderer, &text, (const char *) amountString, "src/font/Alegreya-VariableFont_wght.ttf", 30, 0, 0, 0, 255, 600, 270);
+    placeObject(renderer, &text);
+    SDL_DestroyTexture(text.objectTexture); 
 
-    SDL_RenderCopy(renderer, textTex, NULL, &textRect2); 
-
-    SDL_FreeSurface(textSur1);
-    SDL_DestroyTexture(textTex);
-
-    char amountSting[10];
-    itoa(sendingNode->produce[2*AmountSelected+1], amountSting, 10);
-    textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, amountSting, fColor1, 750);
-    textTex = SDL_CreateTextureFromSurface(renderer, textSur1);
-    SDL_Rect textRect3 = {600, 270, textSur1->w, textSur1->h};
-
-    SDL_RenderCopy(renderer, textTex, NULL, &textRect3);
-
-    
-    SDL_FreeSurface(textSur1);
-    SDL_DestroyTexture(textTex); 
-
-    itoa(sendingNode->produce[2*AmountSelected], amountSting, 10);
-    strcat(amountSting, " ***");
-    textSur1 = TTF_RenderText_Blended_Wrapped(fFont1, amountSting, fColor1, 750);
-    textTex = SDL_CreateTextureFromSurface(renderer, textSur1);
-    SDL_Rect textRect4 = {550, 320, textSur1->w, textSur1->h};
-
-    SDL_RenderCopy(renderer, textTex, NULL, &textRect4);
-    SDL_FreeSurface(textSur1);
-    SDL_DestroyTexture(textTex); 
-    TTF_CloseFont(fFont1);
+    // Show the actual selling price (not BV)
+    sprintf(amountString, "%d", sendingNode->produce[2*AmountSelected]);
+    strcat(amountString, " (Acutal Selling Price)");
+    createTextTexture_Rect(renderer, &text, (const char *) amountString, "src/font/Alegreya-VariableFont_wght.ttf", 18, 0, 0, 0, 255, 550, 320);
+    placeObject(renderer, &text);
+    SDL_DestroyTexture(text.objectTexture); 
 }
 
-void Amount_DrawScene(SDL_Renderer *renderer, struct eventTrigger *eventData){
+void Amount_Run(SDL_Renderer *renderer, struct eventTrigger *eventData){
     SDL_SetRenderDrawColor(renderer, 199, 231, 240, 200);
     SDL_RenderClear(renderer);
-
-    if(eventData->mouseX >= Amount_imgRect6.x && eventData->mouseX <= Amount_imgRect6.x + Amount_imgRect6.w
-    && eventData->mouseY >= Amount_imgRect6.y && eventData->mouseY <= Amount_imgRect6.y + Amount_imgRect6.h
-    && eventData->isTrigger == 1){
+    // Check if click "Back" Button (Return to "Result" Page)
+    if(isClickOnObject(eventData, &Amount_imgObj[5])){
         currentRoom = 1;
     }
 
-    SDL_RenderCopy(renderer, Amount_imgTexture1, NULL, &Amount_imgRect1);
-    SDL_RenderCopy(renderer, Amount_imgTexture2, NULL, &Amount_imgRect2);
-    SDL_RenderCopy(renderer, Amount_imgTexture3, NULL, &Amount_imgRect3);
-    SDL_RenderCopy(renderer, Amount_imgTexture4, NULL, &Amount_imgRect4);
-    SDL_RenderCopy(renderer, Amount_imgTexture5, NULL, &Amount_imgRect5);
-    SDL_RenderCopy(renderer, Amount_imgTexture6, NULL, &Amount_imgRect6);
-    SDL_RenderCopy(renderer, Amount_imgTexture7, NULL, &Amount_imgRect7);
-    SDL_RenderCopy(renderer, Amount_imgTexture8, NULL, &Amount_imgRect8);
-    SDL_RenderCopy(renderer, Amount_imgTexture9, NULL, &Amount_imgRect9);
-    SDL_RenderCopy(renderer, Amount_imgTexture10, NULL, &Amount_imgRect10);
-    SDL_RenderCopy(renderer, Amount_imgTexture11, NULL, &Amount_imgRect11);
-
-    //text
-    SDL_RenderCopy(renderer, Amount_texTexture1, NULL, &Amount_texRect1);
-    SDL_RenderCopy(renderer, Amount_texTexture2, NULL, &Amount_texRect2);
-    SDL_RenderCopy(renderer, Amount_texTexture3, NULL, &Amount_texRect3);
-    SDL_RenderCopy(renderer, Amount_texTexture4, NULL, &Amount_texRect4);
+    // Draw Scene
+    for(int i=0; i<AMOUNT_IMG_AMOUNT; i++){
+        placeObject(renderer, &Amount_imgObj[i]);
+    }
+    for(int i=0; i<AMOUNT_TEXT_AMOUNT; i++){
+        placeObject(renderer, &Amount_textObj[i]);
+    }
     
     SelectingItem(renderer, eventData);
-    Amount_dataInformation(renderer, eventData);
+    Amount_dataOption(renderer, eventData);
     Amount_UserInputPrice(renderer, eventData);
+
     SDL_RenderPresent(renderer);
 }

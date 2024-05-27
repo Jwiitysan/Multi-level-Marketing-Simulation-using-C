@@ -1,7 +1,7 @@
 #include <SDL2/SDL.h>
 
 void Amount_Initial(SDL_Renderer *renderer);
-void Amount_DrawScene(SDL_Renderer *renderer, struct eventTrigger *eventData);
+void Amount_Run(SDL_Renderer *renderer, struct eventTrigger *eventData);
 
 void NewDownline_Initial(SDL_Renderer *renderer);
 void NewDownline_DrawScene(SDL_Renderer *renderer, struct eventTrigger *eventData);
