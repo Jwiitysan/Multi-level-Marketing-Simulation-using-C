@@ -1,9 +1,9 @@
-Com/ 1 Node1 1 Node2 1 Node3 1 Node4 1 Node5 1
+Com/ 1 Node1 1 Node2 1 Node3 1 Node4 1 Node5 0
 Node1/ 1 Node10 1 Node6 1 Node7 1 Node8 1 Node9 1
 Node2/ 1 Node11 1 Node12 1 Node13 1
 Node3/ 1 Node14 1 Node15 1 Node16 1 Node17 1 Node18 1 Node19 1 Node20 1 Node21 1
 Node4/ 1 Node22 1 Node23 1 Node24 1 Node25 1 Node26 1 Node27 1 Node28 1 Node29 1 Node30 1 Node31 1 Node32 1 Node33 1
-Node5/ 1 Node34 1 Node35 1 Node36 1 Node37 1 Node38 1 Node39 1 Node40 1
+Node5/ 0 AB 1 Node34 1 Node35 1 Node36 1 Node37 1 Node38 1 Node39 1 Node40 1
 Node10/ 1
 Node6/ 1
 Node7/ 1
@@ -32,6 +32,7 @@ Node30/ 1
 Node31/ 1
 Node32/ 1
 Node33/ 1
+AB/ 1
 Node34/ 1 Node41 1 Node42 1 Node43 1
 Node35/ 1 Node44 1 Node45 1 Node46 1 Node47 1 Node48 1 Node49 1
 Node36/ 1 Node50 1 Node51 1 Node52 1 Node53 1 Node54 1 Node55 1 Node56 1 Node57 1

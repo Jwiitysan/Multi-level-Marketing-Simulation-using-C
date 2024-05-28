@@ -29,15 +29,15 @@ void Enqueue(NodePtr input)
     QueuePtr pNewnode;
     pNewnode = getQueue(input);
 
-    if(pFront == NULL)
+    if(pFront == NULL) //if queue is empty queue
     {
         pFront = pNewnode;
         pRear = pFront;
     }
-    else
+    else //if queue isn't empty queue
     {
-        pRear->next = pNewnode;
-        pRear = pRear->next;
+        pRear->next = pNewnode; //insert at last queue
+        pRear = pRear->next; // set new rear
     }
 }
 
@@ -49,12 +49,12 @@ NodePtr Dequeue()
     NodePtr p;
 
     pTemp = pFront;
-    if(pFront == NULL)
+    if(pFront == NULL) //queue is empty queue
     {
         return NULL;
     }
     p = pFront->pointer;
-    if(pFront == pRear)
+    if(pFront == pRear) //last queue
     {
         pFront = pRear= NULL;
     }
@@ -87,26 +87,26 @@ void randomIncome(int *table ,int num)
     int icount;
     int temp;
 
-    for(icount=0 ;icount<num ;icount++)
+    for(icount=0 ;icount<num ;icount++) //set every column to 0
     {
         *(table+(icount*2)) = 0;
         *(table+(icount*2)+1) = 0;
     }
 
-    rannumtype = rand()%6;
+    rannumtype = rand()%6; //random number of types of items sold.
     if(rannumtype != 0)
     {
         for(icount=1 ;icount<=rannumtype ;icount++)
         {
-            rantype = rand()%5;
+            rantype = rand()%5; //random types of items sold.
             if(*(table+(rantype*2)) == 0)
             {
-                temp = (0.1* product[rantype]->price);
-                ranprice = (rand() % temp);
-                *(table+(rantype*2)) = ranprice + product[rantype]->price;
-                *(table+(rantype*2)+1) = (rand()%10)+1;
+                temp = (0.1* product[rantype]->price); //set temp<= 10% of cost
+                ranprice = (rand() % temp); //random profit of items
+                *(table+(rantype*2)) = ranprice + product[rantype]->price; //set price of item
+                *(table+(rantype*2)+1) = (rand()%10)+1; //random number of items
             }
-            else
+            else //if item already sold
             {
                 icount--;
             }
@@ -114,13 +114,13 @@ void randomIncome(int *table ,int num)
     }
 }
 
-/* ********************************* initialize PV ********************************* */
+/* ********************************* initial retail, BV and PV ********************************* */
 void initialPV(NodePtr pNode)
 {
     int iretail=0, icost=0, iproductprice, iPV, iincome=0;
     int *ptable;
 
-    /* ***** 1.retail ***** */ // Use produce
+    /* ***** calculating income from retail and BV ***** */
     ptable = pNode->produce;
     for(int icount=0; icount<AmountProduce; icount++)
     {
@@ -130,7 +130,7 @@ void initialPV(NodePtr pNode)
     }
     iincome+= iretail-icost;
 
-    /* ***** initial retail ,BV and PV ***** */
+    /* ***** initial retail ,BV and PV to node ***** */
     pNode->retail=iincome;
     pNode->BV = icost;
     pNode->PV = pNode->BV/3;
@@ -146,7 +146,7 @@ NodePtr getnode(char inputN[20] ,int status)
     p = (NodePtr)malloc(sizeof(struct node));
     pTable = (int*)malloc(sizeof(int)*AmountProduce*2);
 
-    // printf("%s",inputN);
+    /* ***** set value in node ***** */
     if(strcmp(inputN,"Com") != 0)
         randomIncome(pTable,AmountProduce);
 
@@ -157,7 +157,7 @@ NodePtr getnode(char inputN[20] ,int status)
     p->nextSi = NULL;
 
     if(p->status != 0)
-        initialPV(p);
+        initialPV(p); //calculate PV
     return p;
 }
 
@@ -168,15 +168,15 @@ NodePtr searchNode(NodePtr Root ,char string[])
     NodePtr pRun,pSibling;
 
     pRun = Root;
-    while(pRun!=NULL && strcmp(pRun->name,string) != 0)
+    while(pRun!=NULL && strcmp(pRun->name,string) != 0) //search หา node จากชื่อของ node ไปเรื่อยๆ เมื่อยังไม่เจอ
     {
-        for(pSibling=pRun->child ;pSibling!=NULL ;pSibling=pSibling->nextSi)
+        for(pSibling=pRun->child ;pSibling!=NULL ;pSibling=pSibling->nextSi) //ถ้า node มี child node 
         {
-            Enqueue(pSibling);
+            Enqueue(pSibling); //เพิ่ม sibling node ของ node โดยนำไปใส่ queue เพื่อใช้ในการนำไปเช็ค
         }
-        pRun = Dequeue();
+        pRun = Dequeue(); // ทำการ dequeue node เมื่อไม่เจอ node ที่ต้องการ search อยู่ใน queue
     }
-    return pRun;
+    return pRun; // return address ของ node ที่มีชื่อตรงกับชื่อ node ที่ต้องการ search
 }
 
 /* ********************************* insert tree ********************************* */
@@ -257,29 +257,32 @@ void editPrice(char *stringName ,int newPrice ,int LocationItem ,NodePtr Root)
     *(table+(LocationItem*2)) = newPrice;
 }
 
-/* ********************************* cal PV ********************************* */
+/* ********************************* calculating PV (PV = pNode's PV + pChild's PV) ********************************* */
+// return pNode's PV
 int calPV(NodePtr pNode)
 {
     int iPV=0;
-    iPV += pNode->PV;
-    if(pNode->child==NULL)
+    iPV += pNode->PV; // pNode's PV
+    if(pNode->child==NULL) // If pNode doesn't have child return its PV only
     {
         return iPV;
     }
 
+    /* ***** declaring pNode's child ***** */
     NodePtr pChild;
     pChild = pNode->child;
 
     do
     {
         iPV += calPV(pChild);
-        pChild = pChild->nextSi;
+        pChild = pChild->nextSi; // move to pNode's next children
     }while(pChild!=NULL);
 
     return iPV;
 }
 
-/* ********************************* cal Bonus from PV ********************************* */
+/* ********************************* calculating Bonus percent from PV ********************************* */
+// return Bonus percent
 int calBonus(int iPV)
 {
     if(iPV<5000)
@@ -298,57 +301,63 @@ int calBonus(int iPV)
         return 21;
 }
 
-/* ********************************* cal % downline ********************************* */
+/* ********************************* calculating income from downline ********************************* */
+// return pNode's income from downline
 float calPercent(NodePtr pNode)
 {
     int iPercentChild, iPercent, iPV;
     float fdownline=0;
 
-    if(pNode->child==NULL)
+    if(pNode->child==NULL) // If pNode doesn't have chilld = No income from downline, then return 0
     {
         return 0;
     }
 
+    /* ***** declaring pNode's child or pNode's downline ***** */
     NodePtr pChild;
     pChild = pNode->child;
-    iPV = calPV(pNode);
-    iPercent = calBonus(iPV);
+    iPV = calPV(pNode); // pNode's PV
+    iPercent = calBonus(iPV); // pNode's Bonus percent
 
     do
     {
-        iPercentChild = calBonus(calPV(pChild));
-        fdownline += (iPercent-iPercentChild)*0.01*(pChild->BV);
-        pChild = pChild->nextSi;
+        iPercentChild = calBonus(calPV(pChild)); // pChild's Bonus percent
+        fdownline += (iPercent-iPercentChild)*0.01*(pChild->BV); // income from downline
+        pChild = pChild->nextSi; // move to pNode's next children
     }while(pChild!=NULL);
 
     return fdownline;
 }
 
-/* ********************************* cal income ********************************* */
-// return all of income
+/* ********************************* calculating income ********************************* */
+// income = (income from selling product) + (income from sName's PV) + (income from sName's downline)
+// return all of sName's income
 float Allincome(char *sName, NodePtr pRoot)
 {
     int iPV, ibonus;
     float fincome=0;
     NodePtr pNode;
-    pNode = searchNode(pRoot, sName);
+    pNode = searchNode(pRoot, sName); // using searchnode function for searching sName's node
     clearQueue();
+
     /* ***** check status ***** */
-    if(pNode->status == 0)
+    if(pNode->status == 0) // 0 = this person does not exist anymore
     {
-        return 0; // -1 = Not exist
+        return 0;
     }
-    /* ***** 1.retail ***** */
+
+    /* ***** 1.income from selling product ***** */
     fincome+= pNode->retail;
 
-    /* ***** 2.Personal PV ***** */
-    iPV=calPV(pNode);
-    ibonus= calBonus(iPV);
+    /* ***** 2.income from sName's PV ***** */
+    iPV=calPV(pNode); // iPV = sName's PV + sName's downline PV
+    ibonus= calBonus(iPV); // sName's Bonus percent
     fincome+= pNode->BV * ibonus * 0.01;
 
-    /* ***** 3.Downline PV ***** */
+    /* ***** 3.income from sName's downline ***** */
     fincome+= calPercent(pNode);
 
+    /* ***** initial income to node ***** */
     pNode->total = fincome;
 
     return fincome;
@@ -360,11 +369,11 @@ NodePtr addNode(NodePtr Root ,char cParent[],char string[])
 {
     NodePtr pAddnode,iFindAddress;
     int iLen;
-    iLen = strlen(string);
+    iLen = strlen(string); // หา length ของ string ที่จะเพิ่ม
 
-    iFindAddress = searchNode(Root,cParent);
+    iFindAddress = searchNode(Root,cParent); // หา address ของ Parent node จากชื่อของ Parent
     clearQueue();
-    iFindAddress = insertTree(iFindAddress,string,iLen,1);
+    iFindAddress = insertTree(iFindAddress,string,iLen,1); //เพิ่ม child node ตัวใหม่ใน Parent node
     return Root;
 }
 
@@ -439,16 +448,17 @@ NodePtr searchprevNode(NodePtr Root,char nameTodel[])
     while(pRun!=NULL&&strcmp(pRun->name,nameTodel)!=0)
         {
             if(pRun->child!=NULL&&strcmp(pRun->child->name,nameTodel)==0){
-                return pRun;
+                return pRun;//ถ้ามีchild nodeจะทำการเปรียบเทียบสตริง
             }
             if(pRun->nextSi!=NULL&&strcmp(pRun->nextSi->name,nameTodel)==0){
-                return pRun;
+                return pRun;//หากมีsibilngจะทำการเปรียบเทียบด้วย
             }
             
-            for(pSibling=pRun->child ; pSibling!=NULL;pSibling=pSibling->nextSi){
-                Enqueue(pSibling);
+            for(pSibling=pRun->child ; pSibling!=NULL;pSibling=pSibling->nextSi)
+            {
+                Enqueue(pSibling);//ถ้ายังมีchildอยู่ จะเอาchildเข้าqueue 
             }
-            pRun = Dequeue();
+            pRun = Dequeue();//ให้pRunเป็นchild หากยังไม่เจอ จะวนในloop whileอีก
         
         }
     return NULL;
@@ -458,34 +468,36 @@ NodePtr delNode(char nameTodel[],NodePtr Root)
 {
     NodePtr pNodeToDel = searchNode(Root,nameTodel);
     clearQueue();
+    //หาnodeที่ต้องการจะลบจากชื่อที่รับเข้ามา
     
-    if(pNodeToDel == NULL)
-    {
+    if(pNodeToDel == NULL){
         return Root;
     }
     
     pNodeToDel->status=0;
-    if(pNodeToDel->nextSi == NULL)
-    {
+    //ทำให้statusเป็น0
+    if(pNodeToDel->nextSi == NULL){
         return Root;
     }
-NodePtr pPrevSi = searchprevNode(Root,nameTodel);
-     clearQueue();
+    NodePtr pPrevSi = searchprevNode(Root,nameTodel);
+    clearQueue();
     NodePtr ptemp;
-if(pPrevSi->child==pNodeToDel){
-    pPrevSi->child=pNodeToDel->nextSi;
-    pNodeToDel->nextSi=NULL;
-    for(ptemp=pPrevSi->child;ptemp->nextSi!=NULL&&ptemp->nextSi->status!=0;ptemp=ptemp->nextSi);
-    for(;ptemp->nextSi!=NULL&&strcmp(ptemp->nextSi->name,nameTodel)<0;ptemp=ptemp->nextSi);
+    if(pPrevSi->child==pNodeToDel){
+        //caseที่เจอNodeToDelเป็นลูกตัวแรก
+        pPrevSi->child=pNodeToDel->nextSi;
+        pNodeToDel->nextSi=NULL;
+        for(ptemp=pPrevSi->child;ptemp->nextSi!=NULL&&ptemp->nextSi->status!=0;ptemp=ptemp->nextSi);
+        for(;ptemp->nextSi!=NULL&&strcmp(ptemp->nextSi->name,nameTodel)<0;ptemp=ptemp->nextSi);
+            pNodeToDel->nextSi=ptemp->nextSi;
+            ptemp->nextSi=pNodeToDel;
+    }else{
+        //caseที่NodeToDelเป็นลูกตัวถัดๆไปของparent
+        pPrevSi->nextSi=pNodeToDel->nextSi;
+        for(ptemp=pPrevSi->nextSi;ptemp->nextSi!=NULL&&ptemp->nextSi->status!=0;ptemp=ptemp->nextSi);
+        for(;ptemp->nextSi!=NULL&&strcmp(ptemp->nextSi->name,nameTodel)<0;ptemp=ptemp->nextSi);
         pNodeToDel->nextSi=ptemp->nextSi;
         ptemp->nextSi=pNodeToDel;
-}else{
-     pPrevSi->nextSi=pNodeToDel->nextSi;
-    for(ptemp=pPrevSi->nextSi;ptemp->nextSi!=NULL&&ptemp->nextSi->status!=0;ptemp=ptemp->nextSi);
-    for(;ptemp->nextSi!=NULL&&strcmp(ptemp->nextSi->name,nameTodel)<0;ptemp=ptemp->nextSi);
-        pNodeToDel->nextSi=ptemp->nextSi;
-        ptemp->nextSi=pNodeToDel;
-}
+    }
     return Root;
 }
 

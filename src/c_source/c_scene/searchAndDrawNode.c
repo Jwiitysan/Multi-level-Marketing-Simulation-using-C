@@ -144,12 +144,10 @@ void DrawNode(SDL_Renderer *renderer, struct eventTrigger* eventData){
     while(showNode != NULL && count < 15){
         isRed = 0;
 
-        // Don't draw any line or node when status = 0
-        if(showNode->status == 0);
         // when current showNode is the node which is selected, its name will turn to red
-        else if(showNode == currentSelect){
+        if(showNode == currentSelect){
             nodeObj[1].objectRect = nodeObj[0].objectRect;
-            placeObject(renderer, &nodeObj[1]);
+            if(showNode->status != 0) placeObject(renderer, &nodeObj[1]);
 
             SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
             isRed = 1;
@@ -166,13 +164,13 @@ void DrawNode(SDL_Renderer *renderer, struct eventTrigger* eventData){
                 strcpy(searchText, showNode->name);
             }
             nodeObj[1].objectRect = nodeObj[0].objectRect;
-            placeObject(renderer, &nodeObj[1]);
+            if(showNode->status != 0) placeObject(renderer, &nodeObj[1]);
 
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
             SDL_RenderDrawLine(renderer, (10 + 2*(*Rw)) + bigImgW/2, 150 + bigImgH, *x + *Rw/2, *y);
         }
         else{
-            placeObject(renderer, &nodeObj[0]);
+            if(showNode->status != 0) placeObject(renderer, &nodeObj[0]);
         }
 
         createTextTexture_Rect(renderer, &Result_currentName, (const char*) showNode->name, "src/font/Alegreya-VariableFont_wght.ttf", 20, isRed*255, 0, 0, 255, *x + 10, *y - 25);

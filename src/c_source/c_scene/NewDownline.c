@@ -125,25 +125,28 @@ void NewDownlineInputData(SDL_Renderer *renderer, struct eventTrigger *eventData
         itoa(RandNum, NDLAmount5 , 10);
     // Check if click "Submit" (Create new child node and set the selected node to root)
     }else if(isClickOnObject(eventData, &NewDownline_imgObj[13]) == 2){
-        rootOfMLM = addNode(rootOfMLM, sendingNode->name, NDL_UsernameLine);
-        NodePtr setNode = searchNode(rootOfMLM, NDL_UsernameLine);
-        setNode->produce[1] = atoi(NDLAmount1);
-        setNode->produce[0] = product[0]->price * (1 + rand()%8)/100.0f;
-        setNode->produce[3] = atoi(NDLAmount2);
-        setNode->produce[2] = product[1]->price * (1 + rand()%8)/100.0f;
-        setNode->produce[5] = atoi(NDLAmount3);
-        setNode->produce[4] = product[2]->price * (1 + rand()%8)/100.0f;
-        setNode->produce[7] = atoi(NDLAmount4);
-        setNode->produce[6] = product[3]->price * (1 + rand()%8)/100.0f;
-        setNode->produce[9] = atoi(NDLAmount5);
-        setNode->produce[8] = product[4]->price * (1 + rand()%8)/100.0f;
+        if(searchNode(rootOfMLM, NDL_UsernameLine) == NULL){
+            rootOfMLM = addNode(rootOfMLM, sendingNode->name, NDL_UsernameLine);
+            NodePtr setNode = searchNode(rootOfMLM, NDL_UsernameLine);
+            setNode->produce[1] = atoi(NDLAmount1);
+            setNode->produce[0] = product[0]->price * (1 + rand()%8)/100.0f;
+            setNode->produce[3] = atoi(NDLAmount2);
+            setNode->produce[2] = product[1]->price * (1 + rand()%8)/100.0f;
+            setNode->produce[5] = atoi(NDLAmount3);
+            setNode->produce[4] = product[2]->price * (1 + rand()%8)/100.0f;
+            setNode->produce[7] = atoi(NDLAmount4);
+            setNode->produce[6] = product[3]->price * (1 + rand()%8)/100.0f;
+            setNode->produce[9] = atoi(NDLAmount5);
+            setNode->produce[8] = product[4]->price * (1 + rand()%8)/100.0f;
 
-        writeFile(rootOfMLM);
+            writeFile(rootOfMLM);
 
-        currentSelect = sendingNode;
-        currentRoot = currentSelect;
-        currentRoom = 1; 
-
+            currentSelect = sendingNode;
+            currentRoot = currentSelect;
+            currentRoom = 1;
+        }else{
+            printf("This name (%s) has already use!\n", NDL_UsernameLine);
+        }
     // Check if click "Back" (Return to "Result" page)
     }else if(isClickOnObject(eventData, &NewDownline_imgObj[12]) == 2){
         currentRoom = 1;
